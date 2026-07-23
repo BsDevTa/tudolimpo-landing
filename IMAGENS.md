@@ -44,14 +44,14 @@ O Hero usa `loading="eager"` e `fetchpriority="high"` porque aparece na primeira
 
 ## Como trocar a logo
 
-Atualmente a marca visível é desenhada em HTML/CSS, então não existe arquivo de logo sendo carregado.
+A marca visível no cabeçalho usa uma imagem em `assets/images/brand/logo-header.png`.
 
-Quando a logo oficial for usada como imagem:
+Para trocar a logo:
 
-1. Coloque o arquivo em `assets/images/brand/`.
-2. Adicione a entrada correspondente em `TUDOLIMPO_IMAGES`.
-3. Aplique a imagem com `createResponsiveImage()` ou `applyConfiguredImage()`.
-4. Use `alt="TudoLimpo"` se o nome da marca não estiver escrito ao lado.
+1. Coloque o arquivo original em `assets/images/brand/`.
+2. Gere uma versão recortada para o cabeçalho, sem margens grandes ao redor da arte.
+3. Atualize o `src` da imagem `.brand__logo` no `index.html`.
+4. Use `alt="TudoLimpo"` se o nome da marca estiver escrito na própria imagem.
 
 ## Como trocar imagens dos serviços
 

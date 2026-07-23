@@ -71,9 +71,16 @@ button:focus-visible {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-width: 154px;
+  min-width: 200px;
 }
+
+.brand__logo {
+  display: block;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
 
 .brand__mark {
   position: relative;
@@ -357,8 +364,8 @@ button:focus-visible {
   border-radius: 0;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(245, 247, 250, 0.08), rgba(255, 255, 255, 0.82)),
-    linear-gradient(140deg, rgba(59, 101, 163, 0.18), rgba(37, 211, 102, 0.1)),
+    linear-gradient(40deg, rgba(245, 247, 250, 0.08), rgba(255, 255, 255, 0.82)),
+    linear-gradient(10deg, rgba(59, 101, 163, 0.18), rgba(37, 211, 102, 0.1)),
     #ecf1f4;
   box-shadow: var(--shadow-soft);
 }
@@ -366,7 +373,7 @@ button:focus-visible {
 .hero__image {
   position: absolute;
   inset: 0;
-  z-index: 4;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: none;
@@ -379,9 +386,7 @@ button:focus-visible {
 }
 
 .image-placeholder.has-configured-image .placeholder__halo,
-.image-placeholder.has-configured-image .placeholder__person,
-.image-placeholder.has-configured-image::before,
-.image-placeholder.has-configured-image::after {
+.image-placeholder.has-configured-image .placeholder__person {
   display: none;
 }
 
@@ -406,6 +411,32 @@ button:focus-visible {
   top: 11%;
   width: 34%;
   height: 58%;
+}
+
+.image-placeholder.has-configured-image::before,
+.image-placeholder.has-configured-image::after {
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.image-placeholder.has-configured-image::before {
+  inset: 0;
+  z-index: 2;
+  width: auto;
+  height: auto;
+  background:
+    linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.86) 20%, rgba(255, 255, 255, 0.32) 48%, rgba(255, 255, 255, 0) 76%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(245, 247, 250, 0.46) 100%);
+}
+
+.image-placeholder.has-configured-image::after {
+  inset: 0;
+  z-index: 3;
+  width: auto;
+  height: auto;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.42) 100%);
 }
 
 .placeholder__halo {
@@ -520,7 +551,7 @@ button:focus-visible {
   position: absolute;
   top: 122px;
   right: 6px;
-  z-index: 3;
+  z-index: 6;
   width: min(265px, 40%);
   display: grid;
   gap: 20px;
@@ -535,7 +566,8 @@ button:focus-visible {
   padding: 16px 18px;
   border: 1px solid rgba(24, 59, 107, 0.08);
   border-radius: 14px;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
   box-shadow: var(--shadow-card);
 }
 
@@ -2509,6 +2541,14 @@ button:focus-visible {
 }
 
 @media (max-width: 1120px) {
+  .brand {
+    min-width: 154px;
+  }
+
+  .brand__logo {
+    width: 154px;
+  }
+
   .header__inner {
     gap: 18px;
   }

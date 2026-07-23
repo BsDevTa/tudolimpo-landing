@@ -14,7 +14,7 @@ const TUDOLIMPO_IMAGES = {
   hero: {
     // TROQUE A IMAGEM DO HERO AQUI
     main: {
-      src: "assets/images/hero/hero-tudolimpo.webp",
+      src: "assets/images/hero/hero.png",
       alt: "Profissional realizando serviço de limpeza",
       width: 940,
       height: 760,
