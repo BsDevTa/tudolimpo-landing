@@ -54,57 +54,60 @@ const TUDOLIMPO_IMAGES = {
   },
   beforeAfter: [
     // TROQUE AS IMAGENS DE ANTES E DEPOIS AQUI
-    {
-      id: 1,
-      before: {
-        src: "assets/images/before-after/cozinha-antes.webp",
-        alt: "Cozinha antes da limpeza",
-        width: 1400,
-        height: 1050,
-        decorative: false
-      },
-      after: {
-        src: "assets/images/before-after/cozinha-depois.webp",
-        alt: "Cozinha depois da limpeza",
-        width: 1400,
-        height: 1050,
-        decorative: false
-      }
-    },
-    {
-      id: 2,
-      before: {
-        src: "assets/images/before-after/escritorio-antes.webp",
-        alt: "Escritório antes da limpeza",
-        width: 1400,
-        height: 1050,
-        decorative: false
-      },
-      after: {
-        src: "assets/images/before-after/escritorio-depois.webp",
-        alt: "Escritório depois da limpeza",
-        width: 1400,
-        height: 1050,
-        decorative: false
-      }
-    },
-    {
-      id: 3,
-      before: {
-        src: "assets/images/before-after/pos-obra-antes.webp",
-        alt: "Ambiente antes da limpeza pós-obra",
-        width: 1400,
-        height: 1050,
-        decorative: false
-      },
-      after: {
-        src: "assets/images/before-after/pos-obra-depois.webp",
-        alt: "Ambiente depois da limpeza pós-obra",
-        width: 1400,
-        height: 1050,
-        decorative: false
-      }
-    }
+{
+  id: 1,
+  full: {
+    src: "assets/images/before-after/banheiros-sanitarios.png",
+    alt: "Antes e depois de limpeza de banheiros e sanitários",
+    width: 1536,
+    height: 1024,
+    decorative: false
+  }
+},
+
+{
+  id: 2,
+  full: {
+    src: "assets/images/before-after/residencial.png",
+    alt: "Antes e depois de limpeza de residencial",
+    width: 1536,
+    height: 1024,
+    decorative: false
+  }
+},
+
+{
+  id: 3,
+  full: {
+    src: "assets/images/before-after/Contabilidade.png",
+    alt: "Antes e depois de limpeza de contabilidade",
+    width: 1536,
+    height: 1024,
+    decorative: false
+  }
+},
+
+{
+  id: 4,
+  full: {
+    src: "assets/images/before-after/Casas.png",
+    alt: "Antes e depois de limpeza de casas",
+    width: 1536,
+    height: 1024,
+    decorative: false
+  }
+},
+
+{
+  id: 5,
+  full: {
+    src: "assets/images/before-after/Apartamento.png",
+    alt: "Antes e depois de limpeza de apartamentos",
+    width: 1536,
+    height: 1024,
+    decorative: false
+  }
+},
   ],
   testimonials: [
     // ADICIONE AS FOTOS REAIS DOS CLIENTES AQUI
@@ -321,24 +324,33 @@ const TUDOLIMPO_DIFFERENTIALS = {
 const TUDOLIMPO_BEFORE_AFTER = [
   {
     id: 1,
-    service: "Limpeza residencial",
-    title: "Placeholder para resultado residencial",
-    description:
-      "Espaço reservado para uma transformação residencial real, com imagens oficiais que serão adicionadas posteriormente."
+    service: "Limpeza em banheiros e sanitários",
+    title: "Banheiros e sanitários",
+    description: "Higiene, saúde e bem-estar todos os dias."
   },
   {
     id: 2,
-    service: "Limpeza empresarial",
-    title: "Placeholder para resultado empresarial",
-    description:
-      "Espaço reservado para um resultado empresarial real, com imagens oficiais que serão adicionadas posteriormente."
+    service: "Limpeza residencial",
+    title: "Residencial",
+    description: "Ambientes residenciais limpos, seguros e agradáveis."
   },
   {
     id: 3,
-    service: "Limpeza pós-obra",
-    title: "Placeholder para resultado pós-obra",
-    description:
-      "Espaço reservado para uma transformação pós-obra real, com imagens oficiais que serão adicionadas posteriormente."
+    service: "Limpeza empresarial",
+    title: "Contabilidade",
+    description: "Ambientes profissionais organizados e bem cuidados."
+  },
+  {
+    id: 4,
+    service: "Limpeza de casas",
+    title: "Casas",
+    description: "Cuidado completo para casas e áreas de convivência."
+  },
+  {
+    id: 5,
+    service: "Limpeza de apartamentos",
+    title: "Apartamentos",
+    description: "Limpeza prática e eficiente para apartamentos."
   }
 ];
 
@@ -1307,6 +1319,39 @@ function getBeforeAfterImageConfig(slideId, type) {
   };
 }
 
+function getBeforeAfterFullImageConfig(slideId) {
+  const imageSet = TUDOLIMPO_IMAGES.beforeAfter.find((item) => item.id === slideId);
+
+  return imageSet?.full || null;
+}
+
+function createBeforeAfterFullImage(item) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "before-after__single-wrapper";
+  wrapper.dataset.placeholder = "IMAGEM DO RESULTADO";
+
+  const imageConfig = getBeforeAfterFullImageConfig(item.id);
+  const image = createResponsiveImage({
+    ...imageConfig,
+    className: "before-after__single-image",
+    loading: "lazy",
+    decoding: "async"
+  });
+
+  image.addEventListener("load", () => wrapper.classList.add("has-image"));
+  image.addEventListener("error", () => {
+    wrapper.classList.remove("has-image");
+  });
+
+  wrapper.appendChild(image);
+
+  if (image.complete && image.naturalWidth > 0) {
+    wrapper.classList.add("has-image");
+  }
+
+  return wrapper;
+}
+
 function createBeforeAfterImage(item, type) {
   const isAfter = type === "after";
   const wrapper = document.createElement("div");
@@ -1344,8 +1389,16 @@ function createBeforeAfterSlide(item, index) {
   slide.dataset.slideIndex = String(index);
 
   const images = document.createElement("div");
-  images.className = "before-after__images";
-  images.append(createBeforeAfterImage(item, "before"), createBeforeAfterImage(item, "after"));
+  const fullImageConfig = getBeforeAfterFullImageConfig(item.id);
+
+  if (fullImageConfig?.src) {
+    images.className = "before-after__images before-after__images--single";
+    images.appendChild(createBeforeAfterFullImage(item));
+    slide.classList.add("before-after__slide--single");
+  } else {
+    images.className = "before-after__images";
+    images.append(createBeforeAfterImage(item, "before"), createBeforeAfterImage(item, "after"));
+  }
 
   const content = document.createElement("div");
   content.className = "before-after__content";
@@ -1355,7 +1408,11 @@ function createBeforeAfterSlide(item, index) {
     <p class="before-after__slide-description">${item.description}</p>
   `;
 
-  slide.append(images, content);
+  slide.append(images);
+
+  if (!fullImageConfig?.src) {
+    slide.appendChild(content);
+  }
 
   return slide;
 }

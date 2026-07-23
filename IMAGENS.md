@@ -72,6 +72,21 @@ Os cards usam a chave `data-service-image`, não a posição do card.
 
 Cada item tem uma imagem `before` e uma imagem `after`, com alt independente.
 
+Se a arte já vier montada com antes/depois, textos, logo e CTA em uma única imagem, use `full` no lugar de `before` e `after`:
+
+```js
+{
+  id: 1,
+  full: {
+    src: "assets/images/before-after/banheiros-sanitarios.png",
+    alt: "Antes e depois de limpeza de banheiros e sanitários",
+    width: 1536,
+    height: 1024,
+    decorative: false
+  }
+}
+```
+
 ## Como adicionar um novo conjunto Antes e Depois
 
 1. Adicione um novo objeto em `TUDOLIMPO_BEFORE_AFTER`, com `id`, `service`, `title` e `description`.
