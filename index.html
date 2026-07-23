@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TudoLimpo: serviços de limpeza, conservação e apoio operacional com equipe selecionada e supervisionada."
+    />
+    <title>TudoLimpo | Limpeza que transforma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header__inner">
+        <a class="brand" href="#inicio" aria-label="TudoLimpo - página inicial">
+          <span class="brand__mark" aria-hidden="true">
+            <span class="brand__roof"></span>
+            <span class="brand__sparkle"></span>
+          </span>
+          <span class="brand__text">
+            <strong>TUDO</strong>
+            <strong>LIMPO</strong>
+            <small>Limpeza que transforma</small>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Abrir menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="primary-nav" id="primary-navigation" aria-label="Menu principal">
+          <a href="#inicio">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#monte-sua-limpeza">Monte sua limpeza</a>
+          <a href="#pontos">Pontos</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a class="btn btn--whatsapp header__cta" href="https://wa.me/" aria-label="Solicitar orçamento pelo WhatsApp">
+          <span class="btn__icon" aria-hidden="true">W</span>
+          <span>Solicitar orçamento pelo WhatsApp</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <p class="hero__eyebrow">+12 anos cuidando do que é seu</p>
+            <h1 id="hero-title">
+              Mais que limpeza.<br />
+              <span>Gestão, confiança e pessoas.</span>
+            </h1>
+            <p class="hero__description">
+              Serviços de limpeza, conservação e apoio operacional realizados por profissionais cuidadosamente
+              selecionados e acompanhados por um Psicólogo de Empresas.
+            </p>
+
+            <div class="hero__actions" aria-label="Ações principais">
+              <a class="btn btn--primary" href="https://wa.me/">
+                <span class="btn__icon" aria-hidden="true">W</span>
+                <span>Quero meu orçamento</span>
+              </a>
+              <a class="btn btn--secondary" href="#como-funciona">
+                <span>Como funciona</span>
+                <span class="btn__play" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__visual" aria-label="Profissional TudoLimpo em atendimento">
+            <div class="image-placeholder" data-configured-image="hero.main" aria-hidden="true">
+              <div class="placeholder__halo"></div>
+              <div class="placeholder__person">
+                <span class="placeholder__head"></span>
+                <span class="placeholder__body"></span>
+                <span class="placeholder__apron">TUDO<br />LIMPO</span>
+                <span class="placeholder__arm placeholder__arm--left"></span>
+                <span class="placeholder__arm placeholder__arm--right"></span>
+                <span class="placeholder__spray"></span>
+              </div>
+            </div>
+
+            <div class="floating-cards" aria-label="Destaques do serviço">
+              <article class="floating-card floating-card--one">
+                <span class="floating-card__icon" aria-hidden="true">⚡</span>
+                <p>Atendimento em até 5 minutos</p>
+              </article>
+              <article class="floating-card floating-card--two">
+                <span class="floating-card__icon" aria-hidden="true">%</span>
+                <p>Ganhe condições exclusivas no primeiro orçamento</p>
+              </article>
+              <article class="floating-card floating-card--three">
+                <span class="floating-card__icon" aria-hidden="true">✓</span>
+                <p>Equipe selecionada e supervisionada</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="services" id="servicos" aria-labelledby="services-title">
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="services-title">Escolha seu serviço</h2>
+            <p>Selecione o ambiente que deseja limpar e monte sua experiência TudoLimpo.</p>
+          </div>
+
+          <div class="services__grid" aria-label="Lista de serviços TudoLimpo">
+            <article class="service-card" data-service-card="Residencial">
+              <div class="service-card__image" data-service-image="residential" role="img" aria-label="Espaço reservado para imagem residencial">
+                <span>IMAGEM RESIDENCIAL</span>
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__icon service-card__icon--home" aria-hidden="true"></span>
+                <span class="service-card__status" aria-hidden="true">Escolhido</span>
+                <h3>Residencial</h3>
+                <p>Limpeza e organização para casas e apartamentos.</p>
+                <button class="service-card__button" type="button" aria-pressed="false" data-service="Residencial">
+                  Selecionar
+                </button>
+              </div>
+            </article>
+
+            <article class="service-card" data-service-card="Escritórios e Empresarial">
+              <div class="service-card__image" data-service-image="business" role="img" aria-label="Espaço reservado para imagem empresarial">
+                <span>IMAGEM EMPRESARIAL</span>
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__icon service-card__icon--office" aria-hidden="true"></span>
+                <span class="service-card__status" aria-hidden="true">Escolhido</span>
+                <h3>Escritórios e Empresarial</h3>
+                <p>Ambientes corporativos limpos, organizados e produtivos.</p>
+                <button class="service-card__button" type="button" aria-pressed="false" data-service="Escritórios e Empresarial">
+                  Selecionar
+                </button>
+              </div>
+            </article>
+
+            <article class="service-card" data-service-card="Condomínio">
+              <div class="service-card__image" data-service-image="condominium" role="img" aria-label="Espaço reservado para imagem condomínio">
+                <span>IMAGEM CONDOMÍNIO</span>
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__icon service-card__icon--condo" aria-hidden="true"></span>
+                <span class="service-card__status" aria-hidden="true">Escolhido</span>
+                <h3>Condomínio</h3>
+                <p>Conservação de áreas comuns com segurança e padronização.</p>
+                <button class="service-card__button" type="button" aria-pressed="false" data-service="Condomínio">
+                  Selecionar
+                </button>
+              </div>
+            </article>
+
+            <article class="service-card" data-service-card="Pós-obra">
+              <div class="service-card__image" data-service-image="postConstruction" role="img" aria-label="Espaço reservado para imagem pós-obra">
+                <span>IMAGEM PÓS-OBRA</span>
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__icon service-card__icon--build" aria-hidden="true"></span>
+                <span class="service-card__status" aria-hidden="true">Escolhido</span>
+                <h3>Pós-obra</h3>
+                <p>Limpeza pesada e remoção de resíduos após reformas e construções.</p>
+                <button class="service-card__button" type="button" aria-pressed="false" data-service="Pós-obra">
+                  Selecionar
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cleaning-builder" id="monte-sua-limpeza" aria-labelledby="builder-title">
+        <div class="container">
+          <div class="section-heading cleaning-builder__heading">
+            <h2 id="builder-title"></h2>
+            <p id="builder-subtitle"></p>
+            <small id="builder-support"></small>
+          </div>
+
+          <div class="builder-layout">
+            <div class="builder-panel" aria-label="Configurador de limpeza">
+              <div class="builder-progress" aria-label="Progresso do orçamento">
+                <div class="builder-progress__meta">
+                  <span>Progresso</span>
+                  <strong id="builder-progress-text">0%</strong>
+                </div>
+                <div class="builder-progress__track" aria-hidden="true">
+                  <span id="builder-progress-bar"></span>
+                </div>
+              </div>
+
+              <div class="builder-validation" id="builder-validation" aria-live="polite"></div>
+
+              <div class="builder-steps" id="builder-steps"></div>
+            </div>
+
+            <aside class="builder-summary" aria-labelledby="summary-title">
+              <div class="builder-summary__header">
+                <span>Resumo</span>
+                <h3 id="summary-title">Sua limpeza do dia</h3>
+              </div>
+
+              <dl class="builder-summary__list">
+                <div>
+                  <dt>Ambiente</dt>
+                  <dd id="summary-ambiente">Não selecionado</dd>
+                </div>
+                <div>
+                  <dt>Cômodos</dt>
+                  <dd id="summary-comodos">Não selecionado</dd>
+                </div>
+                <div>
+                  <dt>Serviços adicionais</dt>
+                  <dd id="summary-adicionais">Não selecionado</dd>
+                </div>
+                <div>
+                  <dt>Periodicidade</dt>
+                  <dd id="summary-periodicidade">Não selecionado</dd>
+                </div>
+                <div>
+                  <dt>Data</dt>
+                  <dd id="summary-data">Não selecionado</dd>
+                </div>
+              </dl>
+
+              <div class="builder-score" aria-live="polite">
+                <span>Sua limpeza do dia:</span>
+                <strong id="summary-points">0 pontos!</strong>
+              </div>
+
+              <button class="btn btn--whatsapp builder-whatsapp" id="builder-whatsapp" type="button">
+                <span class="btn__icon" aria-hidden="true">W</span>
+                <span>Enviar orçamento pelo WhatsApp</span>
+              </button>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works" id="como-funciona" aria-labelledby="how-it-works-title">
+        <div class="container">
+          <div class="how-it-works__header">
+            <span class="how-it-works__badge">Simples do início ao fim</span>
+            <h2 id="how-it-works-title">Como funciona</h2>
+            <p>Da escolha do serviço ao ambiente impecável, tudo de forma simples, rápida e segura.</p>
+          </div>
+
+          <div class="how-it-works__timeline-wrap">
+            <div class="how-it-works__line" aria-hidden="true">
+              <span class="how-it-works__line-progress" id="how-it-works-progress"></span>
+            </div>
+            <ol class="how-it-works__timeline" id="how-it-works-timeline"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-choose" id="diferenciais" aria-labelledby="why-choose-title">
+        <div class="container why-choose__container">
+          <div class="why-choose__content">
+            <span class="why-choose__badge" id="why-choose-badge"></span>
+            <h2 class="why-choose__title" id="why-choose-title"></h2>
+            <p class="why-choose__description" id="why-choose-description"></p>
+            <div class="why-choose__featured" id="why-choose-featured"></div>
+            <div class="why-choose__stats" id="why-choose-stats" aria-label="Indicadores de confiança"></div>
+          </div>
+
+          <div class="why-choose__side">
+            <div class="why-choose__grid" id="why-choose-grid"></div>
+            <div class="why-choose__cta" id="why-choose-cta"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="before-after" id="antes-e-depois" aria-labelledby="before-after-title">
+        <div class="container">
+          <div class="before-after__header">
+            <span class="before-after__badge">Resultados que você pode ver</span>
+            <h2 class="before-after__title" id="before-after-title">Antes e depois</h2>
+            <p class="before-after__description">
+              Veja como o cuidado da TudoLimpo transforma diferentes ambientes.
+            </p>
+          </div>
+
+          <div
+            class="before-after__carousel"
+            id="before-after-carousel"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Resultados antes e depois"
+            tabindex="0"
+          >
+            <div class="before-after__viewport">
+              <div class="before-after__track" id="before-after-track"></div>
+            </div>
+
+            <div class="before-after__controls" aria-label="Controles do carrossel">
+              <button class="before-after__button before-after__button--prev" id="before-after-prev" type="button" aria-label="Ver resultado anterior">
+                <span aria-hidden="true"></span>
+              </button>
+              <button class="before-after__button before-after__button--next" id="before-after-next" type="button" aria-label="Ver próximo resultado">
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="before-after__indicators" id="before-after-indicators" aria-label="Selecionar resultado"></div>
+            <p class="before-after__status" id="before-after-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="loyalty" id="pontos" aria-labelledby="loyalty-title">
+        <div class="container loyalty__container">
+          <div class="loyalty__content">
+            <span class="loyalty__badge" id="loyalty-badge"></span>
+            <h2 class="loyalty__title" id="loyalty-title"></h2>
+            <p class="loyalty__description" id="loyalty-description"></p>
+            <p class="loyalty__support" id="loyalty-support"></p>
+            <div class="loyalty__benefits" id="loyalty-benefits"></div>
+            <button class="loyalty__button" id="loyalty-whatsapp" type="button">Quero saber mais</button>
+          </div>
+          <div class="loyalty__visual" id="loyalty-visual"></div>
+        </div>
+      </section>
+
+      <section class="testimonials" id="avaliacoes" aria-labelledby="testimonials-title">
+        <div class="container">
+          <div class="testimonials__header">
+            <span class="testimonials__badge">Quem conhece, recomenda</span>
+            <h2 id="testimonials-title">O que nossos clientes dizem</h2>
+            <p>Experiências que refletem o cuidado, a confiança e a qualidade dos serviços TudoLimpo.</p>
+          </div>
+
+          <div
+            class="testimonials__carousel"
+            id="testimonials-carousel"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Avaliações de clientes"
+            tabindex="0"
+          >
+            <div class="testimonials__viewport">
+              <div class="testimonials__track" id="testimonials-track"></div>
+            </div>
+
+            <div class="testimonials__controls" aria-label="Controles das avaliações">
+              <button class="testimonials__button testimonials__button--prev" id="testimonials-prev" type="button" aria-label="Ver avaliação anterior">
+                <span aria-hidden="true"></span>
+              </button>
+              <button class="testimonials__button testimonials__button--next" id="testimonials-next" type="button" aria-label="Ver próxima avaliação">
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="testimonials__indicators" id="testimonials-indicators" aria-label="Selecionar grupo de avaliações"></div>
+            <p class="testimonials__status" id="testimonials-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="contato" aria-labelledby="final-cta-title">
+        <div class="container">
+          <div class="final-cta__container">
+            <span class="final-cta__badge">Seu ambiente merece esse cuidado</span>
+            <h2 class="final-cta__title" id="final-cta-title">Pronto para deixar tudo limpo?</h2>
+            <p class="final-cta__description">
+              Monte seu serviço em poucos passos e receba um atendimento personalizado pelo WhatsApp.
+            </p>
+            <div class="final-cta__actions">
+              <a class="final-cta__button final-cta__button--primary" href="#monte-sua-limpeza">Montar minha limpeza</a>
+              <button class="final-cta__button final-cta__button--secondary" id="final-whatsapp" type="button">Falar pelo WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="container site-footer__container">
+        <div class="site-footer__grid" id="site-footer-grid"></div>
+        <div class="site-footer__bottom" id="site-footer-bottom"></div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

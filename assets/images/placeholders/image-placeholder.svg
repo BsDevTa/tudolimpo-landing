@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Imagem em atualização</title>
+  <desc id="desc">Placeholder neutro para imagem ainda não cadastrada.</desc>
+  <rect width="1200" height="900" fill="#F5F7FA"/>
+  <rect x="120" y="110" width="960" height="680" rx="36" fill="#E4EAF2"/>
+  <path d="M410 560l120-130 95 100 75-75 130 105H410z" fill="#B8C7DA"/>
+  <circle cx="760" cy="330" r="54" fill="#B8C7DA"/>
+  <text x="600" y="690" text-anchor="middle" fill="#5F6B7A" font-family="Arial, sans-serif" font-size="42" font-weight="700">Imagem em atualização</text>
+</svg>
