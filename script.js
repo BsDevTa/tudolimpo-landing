@@ -21,6 +21,23 @@ const TUDOLIMPO_IMAGES = {
       decorative: false
     }
   },
+  finalCta: {
+    // TROQUE A IMAGEM DO CTA FINAL AQUI
+    logo: {
+      src: "assets/images/brand/logo-cta-enviada.png",
+      alt: "",
+      width: 2960,
+      height: 2819,
+      decorative: true
+    },
+    supervisor: {
+      src: "assets/images/backgrounds/final-cta-supervisor.png",
+      alt: "",
+      width: 1023,
+      height: 1537,
+      decorative: true
+    }
+  },
   services: {
     // TROQUE AS IMAGENS DOS SERVIÇOS AQUI
     residential: {
@@ -764,6 +781,55 @@ function initializeConfiguredContentImages() {
       }
     });
     heroWrapper.prepend(heroImage);
+  }
+
+  const finalCtaMedia = document.querySelector('[data-configured-image="finalCta.supervisor"]');
+  const finalCtaImageConfig = getImageConfig("finalCta.supervisor");
+  const finalCtaLogo = document.querySelector('[data-configured-image="finalCta.logo"]');
+  const finalCtaLogoConfig = getImageConfig("finalCta.logo");
+
+  if (finalCtaLogo && finalCtaLogoConfig?.src) {
+    const logoImage = document.createElement("img");
+
+    logoImage.src = resolveAssetPath(finalCtaLogoConfig.src);
+    logoImage.alt = finalCtaLogoConfig.alt || "";
+    logoImage.width = finalCtaLogoConfig.width;
+    logoImage.height = finalCtaLogoConfig.height;
+    logoImage.loading = "lazy";
+    logoImage.decoding = "async";
+    logoImage.className = "final-cta__logo-image";
+
+    logoImage.addEventListener("load", () => finalCtaLogo.classList.add("has-configured-image"));
+    logoImage.addEventListener("error", () => {
+      if (TUDOLIMPO_IMAGE_CONFIG.showDevelopmentWarnings && isDevelopmentEnvironment()) {
+        console.warn(`[TudoLimpo images] Falha ao carregar: ${logoImage.src}`);
+      }
+      logoImage.remove();
+    });
+
+    finalCtaLogo.appendChild(logoImage);
+  }
+
+  if (finalCtaMedia && finalCtaImageConfig?.src) {
+    const finalCtaImage = document.createElement("img");
+
+    finalCtaImage.src = resolveAssetPath(finalCtaImageConfig.src);
+    finalCtaImage.alt = finalCtaImageConfig.alt || "";
+    finalCtaImage.width = finalCtaImageConfig.width;
+    finalCtaImage.height = finalCtaImageConfig.height;
+    finalCtaImage.loading = "lazy";
+    finalCtaImage.decoding = "async";
+    finalCtaImage.className = "final-cta__image";
+
+    finalCtaImage.addEventListener("load", () => finalCtaMedia.classList.add("has-configured-image"));
+    finalCtaImage.addEventListener("error", () => {
+      if (TUDOLIMPO_IMAGE_CONFIG.showDevelopmentWarnings && isDevelopmentEnvironment()) {
+        console.warn(`[TudoLimpo images] Falha ao carregar: ${finalCtaImage.src}`);
+      }
+      finalCtaImage.remove();
+    });
+
+    finalCtaMedia.appendChild(finalCtaImage);
   }
 
   document.querySelectorAll("[data-service-image]").forEach((wrapper) => {

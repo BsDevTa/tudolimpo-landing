@@ -30,6 +30,7 @@ assets/images/
 | Serviços | `services` | 4:3 | 1200x900 |
 | Antes e Depois | `before-after` | 4:3 | 1400x1050 |
 | Clientes | `testimonials` | 1:1 | 500x500 |
+| CTA final | `backgrounds` | retrato ou paisagem | 1200px+ no maior lado |
 
 Esses valores são orientações. O projeto não corta imagens automaticamente.
 
@@ -41,6 +42,15 @@ Esses valores são orientações. O projeto não corta imagens automaticamente.
 4. Altere `src`, `alt`, `width` e `height`.
 
 O Hero usa `loading="eager"` e `fetchpriority="high"` porque aparece na primeira dobra.
+
+## Como trocar a imagem do CTA final
+
+1. Coloque o arquivo em `assets/images/backgrounds/`.
+2. Abra `script.js`.
+3. Procure por `TUDOLIMPO_IMAGES.finalCta.supervisor`.
+4. Altere `src`, `width` e `height`.
+
+A imagem do CTA final é decorativa e recebe o degradê pelo CSS para manter o texto legível. A logo decorativa do lado esquerdo fica em `TUDOLIMPO_IMAGES.finalCta.logo`.
 
 ## Como trocar a logo
 
