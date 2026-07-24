@@ -24,28 +24,28 @@ const TUDOLIMPO_IMAGES = {
   services: {
     // TROQUE AS IMAGENS DOS SERVIÇOS AQUI
     residential: {
-      src: "assets/images/services/limpeza-residencial.webp",
+      src: "assets/images/services/Residencial.png",
       alt: "Serviço de limpeza residencial",
       width: 1200,
       height: 900,
       decorative: false
     },
     business: {
-      src: "assets/images/services/limpeza-empresarial.webp",
+      src: "assets/images/services/Escritorio.png",
       alt: "Serviço de limpeza empresarial",
       width: 1200,
       height: 900,
       decorative: false
     },
     condominium: {
-      src: "assets/images/services/limpeza-condominio.webp",
+      src: "assets/images/services/Condominial.png",
       alt: "Serviço de limpeza em condomínio",
       width: 1200,
       height: 900,
       decorative: false
     },
     postConstruction: {
-      src: "assets/images/services/limpeza-pos-obra.webp",
+      src: "assets/images/services/PosObra.png",
       alt: "Serviço de limpeza pós-obra",
       width: 1200,
       height: 900,
