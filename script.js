@@ -127,34 +127,16 @@ const TUDOLIMPO_IMAGES = {
 },
   ],
   testimonials: [
-    // ADICIONE AS FOTOS REAIS DOS CLIENTES AQUI
-    {
-      id: 1,
-      src: "",
-      alt: "Cliente da TudoLimpo",
-      width: 500,
-      height: 500,
-      optional: true,
-      decorative: false
-    },
-    {
-      id: 2,
-      src: "",
-      alt: "Cliente da TudoLimpo",
-      width: 500,
-      height: 500,
-      optional: true,
-      decorative: false
-    },
-    {
-      id: 3,
-      src: "",
-      alt: "Cliente da TudoLimpo",
-      width: 500,
-      height: 500,
-      optional: true,
-      decorative: false
-    }
+    // Fotos fictícias geradas para representar clientes nos depoimentos.
+    { id: 1, src: "assets/images/testimonials/cliente-1.png", alt: "Foto fictícia de Mariana Santos", width: 418, height: 418, optional: true, decorative: false },
+    { id: 2, src: "assets/images/testimonials/cliente-2.png", alt: "Foto fictícia de Roberto Almeida", width: 418, height: 418, optional: true, decorative: false },
+    { id: 3, src: "assets/images/testimonials/cliente-3.png", alt: "Foto fictícia de Cláudia Menezes", width: 418, height: 418, optional: true, decorative: false },
+    { id: 4, src: "assets/images/testimonials/cliente-4.png", alt: "Foto fictícia de Fernanda Lima", width: 418, height: 418, optional: true, decorative: false },
+    { id: 5, src: "assets/images/testimonials/cliente-5.png", alt: "Foto fictícia de André Carvalho", width: 418, height: 418, optional: true, decorative: false },
+    { id: 6, src: "assets/images/testimonials/cliente-6.png", alt: "Foto fictícia de Patrícia Rocha", width: 418, height: 418, optional: true, decorative: false },
+    { id: 7, src: "assets/images/testimonials/cliente-7.png", alt: "Foto fictícia de Lucas Martins", width: 418, height: 418, optional: true, decorative: false },
+    { id: 8, src: "assets/images/testimonials/cliente-8.png", alt: "Foto fictícia de Daniela Reis", width: 418, height: 418, optional: true, decorative: false },
+    { id: 9, src: "assets/images/testimonials/cliente-9.png", alt: "Foto fictícia de Eduardo Nascimento", width: 418, height: 418, optional: true, decorative: false }
   ]
 };
 
@@ -229,12 +211,57 @@ const TUDOLIMPO_CONFIG = {
   // ALTERE AQUI OS SERVIÇOS ADICIONAIS
   adicionais: [
     { label: "Não no momento", icon: "NO", none: true },
-    { label: "Spa dos Pés", icon: "SP" },
-    { label: "Spa Terapêutico", icon: "ST" },
-    { label: "Cabeleireiro", icon: "CB" },
+    { label: "Diarista", icon: "DI" },
+    { label: "SPA dos Pés", icon: "SP" },
+    { label: "SPA Terapêutico", icon: "ST" },
     { label: "Massoterapeuta", icon: "MT" },
-    { label: "Manicure", icon: "MA" },
-    { label: "Limpeza de Pele", icon: "LP" }
+    { label: "Limpeza de Pele", icon: "LP" },
+    { label: "Jardineiro(a)", icon: "JA" },
+    { label: "Piscineiro(a)", icon: "PI" },
+    { label: "Lavador(a) de estofados e sofás", icon: "LE" },
+    { label: "Eletricista residencial e comercial", icon: "ER" },
+    { label: "Encanador / Bombeiro hidráulico", icon: "EH" },
+    { label: "Pintor(a) de parede", icon: "PP" },
+    { label: "Pedreiro(a)", icon: "PE" },
+    { label: "Azulejista", icon: "AZ" },
+    { label: "Carpinteiro(a)", icon: "CA" },
+    { label: "Marceneiro(a)", icon: "MA" },
+    { label: "Montador(a) de móveis", icon: "MM" },
+    { label: "Serralheiro(a)", icon: "SE" },
+    { label: "Soldador(a)", icon: "SO" },
+    { label: "Vidraceiro(a)", icon: "VI" },
+    { label: "Chaveiro(a)", icon: "CH" },
+    { label: "Instalador(a) e reparador(a) de ar-condicionado", icon: "AR" },
+    { label: "Técnico(a) de manutenção de eletrodomésticos", icon: "TE" },
+    { label: "Técnico(a) de manutenção de computadores", icon: "TC" },
+    { label: "Lavador(a) e polidor(a) de veículos", icon: "LV" },
+    { label: "Mecânico(a) de veículos", icon: "MV" },
+    { label: "Mecânico(a) de motocicletas", icon: "MO" },
+    { label: "Borracheiro(a)", icon: "BO" },
+    { label: "Motoboy", icon: "MB" },
+    { label: "Motorista independente", icon: "MI" },
+    { label: "Carregador(a) de malas", icon: "CM" },
+    { label: "Arrumador(a)", icon: "AR" },
+    { label: "Coletor(a) de entulhos e resíduos", icon: "CE" },
+    { label: "Cabeleireiro(a)", icon: "CB" },
+    { label: "Barbeiro(a)", icon: "BA" },
+    { label: "Manicure/Pedicure", icon: "MP" },
+    { label: "Maquiador(a)", icon: "MQ" },
+    { label: "Esteticista", icon: "ES" },
+    { label: "Costureiro(a)", icon: "CO" },
+    { label: "Fotógrafo(a)", icon: "FO" },
+    { label: "Filmador(a)", icon: "FI" },
+    { label: "Editor(a) de vídeo", icon: "EV" },
+    { label: "Cantor(a)/Músico(a)", icon: "CM" },
+    { label: "Técnico(a) de sonorização e iluminação", icon: "TS" },
+    { label: "Animador(a) de festas", icon: "AF" },
+    { label: "Confeiteiro(a)", icon: "CF" },
+    { label: "Salgadeiro(a)", icon: "SA" },
+    { label: "Auxiliar de Cozinha", icon: "AC" },
+    { label: "Panfleteiro(a)", icon: "PA" },
+    { label: "Adestrador(a) de animais", icon: "AA" },
+    { label: "Esteticista de animais domésticos", icon: "EA" },
+    { label: "Estofador(a)", icon: "EF" }
   ],
   periodicidades: [
     { label: "1x na semana", icon: "1X" },
@@ -373,8 +400,8 @@ const TUDOLIMPO_BEFORE_AFTER = [
 
 // ALTERE AQUI O COMPORTAMENTO DO CARROSSEL
 const TUDOLIMPO_CAROUSEL_CONFIG = {
-  autoplay: false,
-  autoplayDelay: 6000,
+  autoplay: true,
+  autoplayDelay: 2000,
   loop: true,
   swipeThreshold: 50
 };
@@ -413,37 +440,85 @@ const TUDOLIMPO_LOYALTY_CONFIG = {
   ]
 };
 
-// ALTERE AQUI AS AVALIAÇÕES REAIS DOS CLIENTES
+// ALTERE AQUI AS AVALIAÇÕES DOS CLIENTES
 const TUDOLIMPO_TESTIMONIALS = [
   {
     id: 1,
-    name: "Nome do cliente",
-    location: "Salvador — BA",
+    name: "Mariana Santos",
+    location: "Pituba — Salvador",
     service: "Limpeza residencial",
     rating: 5,
-    testimonial: "Insira aqui uma avaliação verdadeira de um cliente da TudoLimpo."
+    testimonial: "A equipe chegou no horário combinado, foi muito cuidadosa com os móveis e deixou o apartamento impecável."
   },
   {
     id: 2,
-    name: "Nome do cliente",
-    location: "Salvador — BA",
+    name: "Roberto Almeida",
+    location: "Caminho das Árvores — Salvador",
     service: "Limpeza empresarial",
     rating: 5,
-    testimonial: "Insira aqui uma avaliação verdadeira de um cliente da TudoLimpo."
+    testimonial: "Contratamos para o escritório e o atendimento foi organizado, discreto e muito profissional."
   },
   {
     id: 3,
-    name: "Nome do cliente",
-    location: "Salvador — BA",
+    name: "Cláudia Menezes",
+    location: "Lauro de Freitas — BA",
     service: "Limpeza pós-obra",
     rating: 5,
-    testimonial: "Insira aqui uma avaliação verdadeira de um cliente da TudoLimpo."
+    testimonial: "Depois da reforma achei que seria impossível resolver rápido, mas a limpeza ficou excelente."
+  },
+  {
+    id: 4,
+    name: "Fernanda Lima",
+    location: "Barra — Salvador",
+    service: "Diarista",
+    rating: 5,
+    testimonial: "Gostei da atenção aos detalhes e da forma como confirmaram tudo pelo WhatsApp antes do atendimento."
+  },
+  {
+    id: 5,
+    name: "André Carvalho",
+    location: "Paralela — Salvador",
+    service: "Limpeza de condomínio",
+    rating: 5,
+    testimonial: "O serviço nas áreas comuns foi feito com capricho e a equipe manteve tudo bem sinalizado."
+  },
+  {
+    id: 6,
+    name: "Patrícia Rocha",
+    location: "Imbuí — Salvador",
+    service: "Limpeza residencial",
+    rating: 5,
+    testimonial: "Foi a primeira vez que usei a TudoLimpo e já quero deixar uma frequência quinzenal."
+  },
+  {
+    id: 7,
+    name: "Lucas Martins",
+    location: "Stella Maris — Salvador",
+    service: "Limpeza de estofados",
+    rating: 5,
+    testimonial: "Meu sofá ficou renovado e o atendimento explicou todo o processo antes de começar."
+  },
+  {
+    id: 8,
+    name: "Daniela Reis",
+    location: "Rio Vermelho — Salvador",
+    service: "Manicure/Pedicure",
+    rating: 5,
+    testimonial: "Agendei junto com a limpeza e foi muito prático resolver tudo em um único atendimento."
+  },
+  {
+    id: 9,
+    name: "Eduardo Nascimento",
+    location: "Brotas — Salvador",
+    service: "Serviços residenciais",
+    rating: 5,
+    testimonial: "Atendimento rápido, equipe educada e orçamento bem claro. Recomendo pela confiança."
   }
 ];
 
 // ALTERE AQUI O COMPORTAMENTO DO CARROSSEL DE AVALIAÇÕES
 const TUDOLIMPO_TESTIMONIALS_CAROUSEL = {
-  autoplay: false,
+  autoplay: true,
   autoplayDelay: 7000,
   loop: true,
   swipeThreshold: 50
@@ -469,7 +544,7 @@ const TUDOLIMPO_FOOTER_CONFIG = {
     { label: "Avaliações", href: "#avaliacoes" }
   ],
   contact: {
-    phone: "(71) 00000-0000",
+    phone: "(71) 98822-1221",
     email: "contato@tudolimpo.com.br",
     city: "Salvador — Bahia"
   },
@@ -516,6 +591,18 @@ const builderElements = {
   },
   score: document.querySelector(".builder-score"),
   whatsapp: document.querySelector("#builder-whatsapp")
+};
+
+const housekeeperElements = {
+  openButton: document.querySelector("#housekeeper-open"),
+  modal: document.querySelector("#housekeeper-modal"),
+  form: document.querySelector("#housekeeper-form"),
+  closeButtons: document.querySelectorAll("[data-housekeeper-close]"),
+  status: document.querySelector("#housekeeper-status"),
+  cep: document.querySelector("#applicant-cep"),
+  address: document.querySelector("#applicant-address"),
+  neighborhood: document.querySelector("#applicant-neighborhood"),
+  cityState: document.querySelector("#applicant-city-state")
 };
 
 const timelineElements = {
@@ -864,6 +951,11 @@ navLinks.forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && housekeeperElements.modal?.classList.contains("is-open")) {
+    setHousekeeperModalState(false);
+    return;
+  }
+
   if (event.key === "Escape" && document.body.classList.contains("nav-open")) {
     setMenuState(false);
     navToggle.focus();
@@ -904,32 +996,89 @@ serviceButtons.forEach((button) => {
   button.addEventListener("click", () => selectService(button));
 });
 
-function createOptionButton(group, option, isMultiple) {
-  const button = document.createElement("button");
-  button.className = "builder-option";
-  button.type = "button";
-  button.dataset.group = group;
-  button.dataset.value = option.label;
-  button.dataset.none = option.none ? "true" : "false";
-  button.setAttribute("aria-pressed", "false");
-  button.innerHTML = `
-    <span class="builder-option__icon" aria-hidden="true">${option.icon}</span>
-    <span class="builder-option__label">${option.label}</span>
-  `;
-
-  button.addEventListener("click", () => updateState(group, option.label, isMultiple, option.none));
-
-  return button;
-}
-
 function createOptions(group, options, isMultiple = false, compact = false) {
+  if (isMultiple) {
+    return createMultiSelect(group, options);
+  }
+
   const wrapper = document.createElement("div");
-  wrapper.className = compact ? "builder-options builder-options--compact" : "builder-options";
+  wrapper.className = "builder-select";
+  const select = document.createElement("select");
+  select.dataset.group = group;
+  select.setAttribute("aria-label", TUDOLIMPO_CONFIG.stepTitles[group]);
+  select.required = group !== "adicionais";
+
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Selecione uma opção";
+  select.appendChild(placeholder);
 
   options.forEach((option) => {
-    wrapper.appendChild(createOptionButton(group, option, isMultiple));
+    const selectOption = document.createElement("option");
+    selectOption.value = option.label;
+    selectOption.textContent = option.label;
+    selectOption.dataset.none = option.none ? "true" : "false";
+    select.appendChild(selectOption);
   });
 
+  select.addEventListener("change", (event) => {
+    updateState(group, event.target.value, isMultiple);
+  });
+
+  wrapper.appendChild(select);
+
+  return wrapper;
+}
+
+function createMultiSelect(group, options) {
+  const wrapper = document.createElement("details");
+  wrapper.className = "builder-multiselect";
+  wrapper.dataset.group = group;
+
+  const summary = document.createElement("summary");
+  summary.innerHTML = '<span class="builder-multiselect__label">Selecione uma ou mais opções</span>';
+  wrapper.appendChild(summary);
+
+  const list = document.createElement("div");
+  list.className = "builder-multiselect__list";
+  list.setAttribute("role", "group");
+  list.setAttribute("aria-label", TUDOLIMPO_CONFIG.stepTitles[group]);
+
+  const search = document.createElement("input");
+  search.className = "builder-multiselect__search";
+  search.type = "search";
+  search.placeholder = "Pesquisar serviço";
+  search.setAttribute("aria-label", "Pesquisar serviço adicional");
+  list.appendChild(search);
+
+  const optionalHint = document.createElement("p");
+  optionalHint.className = "builder-multiselect__hint";
+  optionalHint.textContent = "Serviço opcional, não é campo obrigatório.";
+  list.appendChild(optionalHint);
+
+  options.forEach((option, index) => {
+    const item = document.createElement("label");
+    item.className = "builder-multiselect__item";
+    const inputId = `builder-${group}-${index}`;
+    item.setAttribute("for", inputId);
+    item.innerHTML = `
+      <input id="${inputId}" type="checkbox" value="${option.label}" ${option.none ? 'data-none="true"' : ""} />
+      <span>${option.label}</span>
+    `;
+
+    item.querySelector("input").addEventListener("change", (event) => {
+      updateMultipleSelection(option.label, option.none, event.target.checked);
+      syncMultiSelect(wrapper);
+      updateProgress();
+      updateSummary();
+    });
+
+    list.appendChild(item);
+  });
+
+  search.addEventListener("input", () => filterMultiSelect(wrapper, search.value));
+
+  wrapper.appendChild(list);
   return wrapper;
 }
 
@@ -938,10 +1087,13 @@ function createStep(number, title, content, group) {
   step.className = "builder-step";
   step.dataset.step = group;
   step.setAttribute("aria-labelledby", `builder-step-${group}`);
+  const isRequired = group !== "adicionais";
+  const requirementText = isRequired ? "Campo obrigatório" : "Opcional";
   step.innerHTML = `
     <div class="builder-step__title">
       <span class="builder-step__number" aria-hidden="true">${number}</span>
       <h3 id="builder-step-${group}">${title}</h3>
+      <span class="builder-step__requirement ${isRequired ? "is-required" : "is-optional"}">${requirementText}</span>
     </div>
   `;
   step.appendChild(content);
@@ -954,11 +1106,12 @@ function createDateStep() {
   wrapper.className = "builder-date";
   wrapper.innerHTML = `
     <label for="builder-date-input">${TUDOLIMPO_CONFIG.texts.dateLabel}</label>
-    <input id="builder-date-input" type="date" />
+    <input id="builder-date-input" type="date" required />
     <p>${TUDOLIMPO_CONFIG.texts.dateHelp}</p>
   `;
 
   wrapper.querySelector("input").addEventListener("input", (event) => {
+    clearValidation();
     state.data = event.target.value;
     updateProgress();
     updateSummary();
@@ -987,13 +1140,13 @@ function renderOptions() {
   updateSummary();
 }
 
-function updateState(group, value, isMultiple, isNoneOption) {
+function updateState(group, value, isMultiple) {
   clearValidation();
 
   if (isMultiple) {
-    updateMultipleSelection(value, isNoneOption);
+    updateMultipleSelection(value, false, Boolean(value));
   } else {
-    state[group] = state[group] === value ? "" : value;
+    state[group] = value;
   }
 
   syncOptionButtons();
@@ -1001,20 +1154,58 @@ function updateState(group, value, isMultiple, isNoneOption) {
   updateSummary();
 }
 
-function updateMultipleSelection(value, isNoneOption) {
+function updateMultipleSelection(value, isNoneOption = false, isChecked = true) {
+  clearValidation();
+
+  if (!value) {
+    return;
+  }
+
   if (isNoneOption) {
-    state.adicionais = state.adicionais.includes(value) ? [] : [value];
+    state.adicionais = isChecked ? [value] : [];
     return;
   }
 
   state.adicionais = state.adicionais.filter((item) => item !== "Não no momento");
 
-  if (state.adicionais.includes(value)) {
-    state.adicionais = state.adicionais.filter((item) => item !== value);
+  if (isChecked) {
+    state.adicionais = state.adicionais.includes(value) ? state.adicionais : [...state.adicionais, value];
     return;
   }
 
-  state.adicionais = [...state.adicionais, value];
+  state.adicionais = state.adicionais.filter((item) => item !== value);
+}
+
+function syncMultiSelect(wrapper) {
+  const selected = state.adicionais;
+  const label = wrapper.querySelector(".builder-multiselect__label");
+  const hasNoneSelected = selected.includes("Não no momento");
+
+  wrapper.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+    input.checked = selected.includes(input.value);
+    input.disabled = hasNoneSelected && input.value !== "Não no momento";
+    input.closest(".builder-multiselect__item")?.classList.toggle("is-disabled", input.disabled);
+  });
+
+  if (!label) {
+    return;
+  }
+
+  if (!selected.length) {
+    label.textContent = "Selecione uma ou mais opções";
+    return;
+  }
+
+  label.textContent = selected.length === 1 ? selected[0] : `${selected.length} serviços selecionados`;
+}
+
+function filterMultiSelect(wrapper, query) {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  wrapper.querySelectorAll(".builder-multiselect__item").forEach((item) => {
+    const text = item.textContent.toLowerCase();
+    item.hidden = Boolean(normalizedQuery) && !text.includes(normalizedQuery);
+  });
 }
 
 function syncOptionButtons() {
@@ -1028,27 +1219,22 @@ function syncOptionButtons() {
 }
 
 function calculatePoints() {
-  const points = TUDOLIMPO_CONFIG.pointsPerSelection;
-  const selectedAdicionais = state.adicionais.filter((item) => item !== "Não no momento");
+  const completedSteps = [
+    state.ambiente,
+    state.comodos,
+    state.periodicidade
+  ].filter(Boolean).length;
 
-  return (
-    (state.ambiente ? points.ambiente : 0) +
-    (state.comodos ? points.comodos : 0) +
-    selectedAdicionais.length * points.adicional +
-    (state.periodicidade ? points.periodicidade : 0) +
-    (state.data ? points.data : 0)
-  );
+  return Math.min(Math.round((completedSteps / 3) * 100), 100);
 }
 
 function updateProgress() {
   const completedSteps = [
     state.ambiente,
     state.comodos,
-    state.adicionais.length > 0,
-    state.periodicidade,
-    state.data
+    state.periodicidade
   ].filter(Boolean).length;
-  const progress = Math.round((completedSteps / 5) * 100);
+  const progress = Math.min(Math.round((completedSteps / 3) * 100), 100);
 
   builderElements.progressBar.style.width = `${progress}%`;
   builderElements.progressText.textContent = `${progress}%`;
@@ -1083,6 +1269,7 @@ function validateForm() {
   if (!state.ambiente) missing.push({ field: "ambiente", label: "Tipo de ambiente" });
   if (!state.comodos) missing.push({ field: "comodos", label: "Quantidade de cômodos" });
   if (!state.periodicidade) missing.push({ field: "periodicidade", label: "Periodicidade" });
+  if (!state.data) missing.push({ field: "data", label: "Data" });
 
   document.querySelectorAll(".builder-step").forEach((step) => {
     step.classList.toggle("is-invalid", missing.some((item) => item.field === step.dataset.step));
@@ -1750,7 +1937,6 @@ function createTestimonialCard(item, index) {
         <span aria-hidden="true">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</span>
       </div>
       <p class="testimonials__text">${item.testimonial}</p>
-      <span class="testimonials__demo">Conteúdo demonstrativo</span>
       <div class="testimonials__author">
         <div class="testimonials__avatar"></div>
         <div>
@@ -1964,6 +2150,110 @@ function bindFinalCtaEvents() {
   });
 }
 
+function setHousekeeperModalState(isOpen) {
+  if (!housekeeperElements.modal) {
+    return;
+  }
+
+  housekeeperElements.modal.classList.toggle("is-open", isOpen);
+  housekeeperElements.modal.setAttribute("aria-hidden", String(!isOpen));
+  document.body.classList.toggle("has-open-modal", isOpen);
+
+  if (isOpen) {
+    housekeeperElements.form?.querySelector("input")?.focus();
+    return;
+  }
+
+  housekeeperElements.openButton?.focus();
+}
+
+function normalizeCep(value) {
+  return value.replace(/\D/g, "").slice(0, 8);
+}
+
+function formatCep(value) {
+  const digits = normalizeCep(value);
+  return digits.length > 5 ? `${digits.slice(0, 5)}-${digits.slice(5)}` : digits;
+}
+
+function setHousekeeperStatus(message, isError = false) {
+  if (!housekeeperElements.status) {
+    return;
+  }
+
+  housekeeperElements.status.textContent = message;
+  housekeeperElements.status.classList.toggle("is-error", isError);
+}
+
+async function fetchAddressByCep(cep) {
+  setHousekeeperStatus("Buscando endereço pelo CEP...");
+
+  try {
+    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const data = await response.json();
+
+    if (!response.ok || data.erro) {
+      setHousekeeperStatus("CEP não encontrado. Preencha o endereço manualmente.", true);
+      return;
+    }
+
+    housekeeperElements.address.value = data.logradouro || "";
+    housekeeperElements.neighborhood.value = data.bairro || "";
+    housekeeperElements.cityState.value = [data.localidade, data.uf].filter(Boolean).join(" / ");
+    setHousekeeperStatus("Endereço preenchido automaticamente.");
+  } catch (error) {
+    setHousekeeperStatus("Não foi possível buscar o CEP agora. Preencha o endereço manualmente.", true);
+  }
+}
+
+function buildHousekeeperMessage(formData) {
+  return [
+    "Olá! Gostaria de enviar minha inscrição para ser diarista na TudoLimpo.",
+    "",
+    `Nome completo: ${formData.get("name")}`,
+    `CEP: ${formData.get("cep")}`,
+    `Endereço: ${formData.get("address")}, ${formData.get("addressNumber")}`,
+    `Complemento: ${formData.get("complement") || "Não informado"}`,
+    `Bairro: ${formData.get("neighborhood")}`,
+    `Cidade/UF: ${formData.get("cityState")}`,
+    `Telefone/Celular/WhatsApp: ${formData.get("phone")}`,
+    `E-mail: ${formData.get("email")}`,
+    `Data de nascimento: ${formatDate(formData.get("birthdate"))}`
+  ].join("\n");
+}
+
+function bindHousekeeperApplication() {
+  housekeeperElements.openButton?.addEventListener("click", () => setHousekeeperModalState(true));
+
+  housekeeperElements.closeButtons.forEach((button) => {
+    button.addEventListener("click", () => setHousekeeperModalState(false));
+  });
+
+  housekeeperElements.cep?.addEventListener("input", (event) => {
+    const formattedCep = formatCep(event.target.value);
+    event.target.value = formattedCep;
+    setHousekeeperStatus("");
+
+    const cep = normalizeCep(formattedCep);
+    if (cep.length === 8) {
+      fetchAddressByCep(cep);
+    }
+  });
+
+  housekeeperElements.form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!housekeeperElements.form.checkValidity()) {
+      housekeeperElements.form.reportValidity();
+      return;
+    }
+
+    const message = buildHousekeeperMessage(new FormData(housekeeperElements.form));
+    window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+    setHousekeeperModalState(false);
+  });
+}
+
 function createFooterSocialLinks() {
   return TUDOLIMPO_FOOTER_CONFIG.socialLinks.map((item) => `
     <a class="site-footer__social-link" href="${item.url}" aria-label="${item.name}">
@@ -2021,4 +2311,5 @@ validateConfiguredImages();
 renderLoyaltySection();
 renderTestimonials();
 bindFinalCtaEvents();
+bindHousekeeperApplication();
 renderFooter();

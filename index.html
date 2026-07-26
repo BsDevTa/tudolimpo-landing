@@ -51,10 +51,9 @@
           <a href="#contato">Contato</a>
         </nav>
 
-        <a class="btn btn--whatsapp header__cta" href="https://wa.me/" aria-label="Solicitar orçamento pelo WhatsApp">
-          <span class="btn__icon" aria-hidden="true">W</span>
-          <span>Solicitar orçamento pelo WhatsApp</span>
-        </a>
+        <button class="btn btn--brand header__cta" id="housekeeper-open" type="button" aria-haspopup="dialog">
+          <span>Seja nossa Diarista</span>
+        </button>
       </div>
     </header>
 
@@ -395,10 +394,94 @@
 
     <footer class="site-footer" id="footer">
       <div class="container site-footer__container">
+        <div class="site-footer__partners" aria-label="Empresas parceiras">
+          <img src="assets/images/partners/contrate-express.png" alt="ContrateExpress" loading="lazy" />
+          <img src="assets/images/partners/psi-group.png" alt="PSIGroup" loading="lazy" />
+          <img src="assets/images/partners/terceiriza-jo.png" alt="TerceirizaJá" loading="lazy" />
+          <img src="assets/images/partners/onlymed.png" alt="OnlyMed" loading="lazy" />
+        </div>
         <div class="site-footer__grid" id="site-footer-grid"></div>
         <div class="site-footer__bottom" id="site-footer-bottom"></div>
       </div>
     </footer>
+
+    <div class="application-modal" id="housekeeper-modal" aria-hidden="true">
+      <div class="application-modal__backdrop" data-housekeeper-close></div>
+      <section
+        class="application-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="housekeeper-title"
+      >
+        <button class="application-modal__close" type="button" aria-label="Fechar formulário" data-housekeeper-close>×</button>
+        <span class="application-modal__badge">Trabalhe conosco</span>
+        <h2 id="housekeeper-title">Seja nossa Diarista</h2>
+        <p>Preencha seus dados para iniciar sua inscrição com a TudoLimpo.</p>
+
+        <form class="application-form" id="housekeeper-form">
+          <label>
+            Nome completo
+            <input id="applicant-name" name="name" type="text" autocomplete="name" required />
+          </label>
+
+          <div class="application-form__grid">
+            <label>
+              CEP
+              <input id="applicant-cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="9" required />
+            </label>
+            <label>
+              Endereço
+              <input id="applicant-address" name="address" type="text" autocomplete="street-address" required />
+            </label>
+          </div>
+
+          <div class="application-form__grid">
+            <label>
+              Número
+              <input id="applicant-address-number" name="addressNumber" type="text" autocomplete="address-line2" required />
+            </label>
+            <label>
+              Complemento
+              <input id="applicant-complement" name="complement" type="text" autocomplete="address-line3" />
+            </label>
+          </div>
+
+          <div class="application-form__grid">
+            <label>
+              Bairro
+              <input id="applicant-neighborhood" name="neighborhood" type="text" required />
+            </label>
+            <label>
+              Cidade/UF
+              <input id="applicant-city-state" name="cityState" type="text" required />
+            </label>
+          </div>
+
+          <div class="application-form__grid">
+            <label>
+              Celular
+              <input id="applicant-phone" name="phone" type="tel" autocomplete="tel" required />
+            </label>
+            <label>
+              E-mail
+              <input id="applicant-email" name="email" type="email" autocomplete="email" required />
+            </label>
+          </div>
+
+          <label>
+            Data de nascimento
+            <input id="applicant-birthdate" name="birthdate" type="date" required />
+          </label>
+
+          <p class="application-form__status" id="housekeeper-status" aria-live="polite"></p>
+
+          <button class="btn btn--whatsapp application-form__submit" type="submit">
+            <span class="btn__icon" aria-hidden="true">W</span>
+            <span>Enviar inscrição</span>
+          </button>
+        </form>
+      </section>
+    </div>
 
     <script src="script.js"></script>
   </body>
