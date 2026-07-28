@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Spa dos pes</title>
+  <desc id="desc">Ilustracao de pes em uma bacia de spa.</desc>
+  <rect width="240" height="180" rx="34" fill="#eefaf8"/>
+  <ellipse cx="120" cy="132" rx="76" ry="18" fill="#b7e9e1"/>
+  <path d="M70 118c10-28 25-44 45-47 14-2 22 7 18 20-5 16-19 31-29 43-9 11-29 2-34-16Z" fill="#f0bd8d"/>
+  <path d="M117 118c7-30 19-49 38-55 14-4 24 3 23 16-2 19-15 38-24 52-7 12-30 7-37-13Z" fill="#e9ad78"/>
+  <circle cx="89" cy="83" r="6" fill="#fff6e8"/>
+  <circle cx="104" cy="75" r="5" fill="#fff6e8"/>
+  <circle cx="120" cy="71" r="4" fill="#fff6e8"/>
+  <circle cx="148" cy="70" r="5" fill="#fff6e8"/>
+  <circle cx="164" cy="70" r="4" fill="#fff6e8"/>
+  <path d="M55 129c36 18 94 18 130 0" fill="none" stroke="#13989a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="63" cy="58" r="10" fill="#f6c451"/>
+  <circle cx="184" cy="46" r="7" fill="#f6c451"/>
+</svg>

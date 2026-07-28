@@ -131,12 +131,12 @@ const TUDOLIMPO_IMAGES = {
     { id: 1, src: "assets/images/testimonials/cliente-1.png", alt: "Foto fictícia de Mariana Santos", width: 418, height: 418, optional: true, decorative: false },
     { id: 2, src: "assets/images/testimonials/cliente-2.png", alt: "Foto fictícia de Roberto Almeida", width: 418, height: 418, optional: true, decorative: false },
     { id: 3, src: "assets/images/testimonials/cliente-3.png", alt: "Foto fictícia de Cláudia Menezes", width: 418, height: 418, optional: true, decorative: false },
-    { id: 4, src: "assets/images/testimonials/cliente-4.png", alt: "Foto fictícia de Fernanda Lima", width: 418, height: 418, optional: true, decorative: false },
-    { id: 5, src: "assets/images/testimonials/cliente-5.png", alt: "Foto fictícia de André Carvalho", width: 418, height: 418, optional: true, decorative: false },
-    { id: 6, src: "assets/images/testimonials/cliente-6.png", alt: "Foto fictícia de Patrícia Rocha", width: 418, height: 418, optional: true, decorative: false },
-    { id: 7, src: "assets/images/testimonials/cliente-7.png", alt: "Foto fictícia de Lucas Martins", width: 418, height: 418, optional: true, decorative: false },
-    { id: 8, src: "assets/images/testimonials/cliente-8.png", alt: "Foto fictícia de Daniela Reis", width: 418, height: 418, optional: true, decorative: false },
-    { id: 9, src: "assets/images/testimonials/cliente-9.png", alt: "Foto fictícia de Eduardo Nascimento", width: 418, height: 418, optional: true, decorative: false }
+    { id: 4, src: "assets/images/testimonials/cliente-5.png", alt: "Foto fictícia de Fernanda Lima", width: 418, height: 418, optional: true, decorative: false },
+    { id: 5, src: "assets/images/testimonials/cliente-4.png", alt: "Foto fictícia de André Carvalho", width: 418, height: 418, optional: true, decorative: false },
+    { id: 6, src: "assets/images/testimonials/cliente-7.png", alt: "Foto fictícia de Patrícia Rocha", width: 418, height: 418, optional: true, decorative: false },
+    { id: 7, src: "assets/images/testimonials/cliente-6.png", alt: "Foto fictícia de Lucas Martins", width: 418, height: 418, optional: true, decorative: false },
+    { id: 8, src: "assets/images/testimonials/cliente-9.png", alt: "Foto fictícia de Daniela Reis", width: 418, height: 418, optional: true, decorative: false },
+    { id: 9, src: "assets/images/testimonials/cliente-8.png", alt: "Foto fictícia de Eduardo Nascimento", width: 418, height: 418, optional: true, decorative: false }
   ]
 };
 
@@ -149,6 +149,8 @@ const TUDOLIMPO_IMAGE_CONFIG = {
 
 // NO WORDPRESS, DEFINA TUDOLIMPO_ASSET_BASE_PATH
 // COM O CAMINHO DO TEMA OU PLUGIN.
+const TUDOLIMPO_CACHE_VERSION = "20260727225910";
+
 function resolveAssetPath(relativePath) {
   const basePath = window.TUDOLIMPO_ASSET_BASE_PATH || "";
 
@@ -164,7 +166,8 @@ function resolveAssetPath(relativePath) {
     return relativePath;
   }
 
-  return `${basePath}${relativePath}`;
+  const separator = relativePath.includes("?") ? "&" : "?";
+  return `${basePath}${relativePath}${separator}v=${TUDOLIMPO_CACHE_VERSION}`;
 }
 
 const TUDOLIMPO_CONFIG = {
@@ -408,35 +411,59 @@ const TUDOLIMPO_CAROUSEL_CONFIG = {
 
 // ALTERE AQUI AS CONFIGURAÇÕES DO PROGRAMA DE PONTOS
 const TUDOLIMPO_LOYALTY_CONFIG = {
-  badge: "Benefícios para clientes",
-  title: "Limpeza que também gera benefícios",
+  badge: "Programa TudoLimpo Pontos",
+  title: "TudoLimpo Pontos",
   description:
-    "A cada atendimento, você pode acumular pontos e acompanhar vantagens preparadas especialmente para clientes TudoLimpo.",
+    "Quanto mais você cuida, mais benefícios acumula.",
   supportText:
-    "Quanto mais você utiliza nossos serviços, mais benefícios poderá conquistar.",
-  examplePoints: 320,
-  exampleGoal: 500,
+    "Seu cuidado gera bem-estar.",
+  examplePoints: 700,
+  exampleGoal: 1000,
+  pointsPerService: 100,
+  featuredReward: {
+    label: "Cada diária realizada",
+    title: "+100 pontos",
+    points: 100
+  },
   benefits: [
     {
       icon: "sparkles",
-      title: "Acumule pontos",
-      description: "Os serviços realizados podem contribuir para sua pontuação."
-    },
-    {
-      icon: "gift",
-      title: "Conquiste benefícios",
-      description: "A pontuação poderá dar acesso a condições e vantagens especiais."
+      image: "assets/images/loyalty/foto-spa-dos-pes.png",
+      title: "800 pontos",
+      description: "Spa dos Pés.",
+      missingText: "Faltam 100 pontos",
+      status: "Quase lá!"
     },
     {
       icon: "history",
-      title: "Acompanhe sua evolução",
-      description: "Consulte sua pontuação por meio do atendimento da TudoLimpo."
+      image: "assets/images/loyalty/foto-spa-terapeutico.png",
+      title: "1.200 pontos",
+      description: "Spa Terapêutico.",
+      missingText: "Faltam 500 pontos",
+      status: "Continue acumulando!"
+    },
+    {
+      icon: "sparkles",
+      image: "assets/images/loyalty/foto-limpeza-de-pele.png",
+      title: "1.600 pontos",
+      description: "Spa Terapêutico + Limpeza de Pele.",
+      missingText: "Faltam 900 pontos",
+      status: "Continue acumulando!"
+    },
+    {
+      icon: "gift",
+      image: "assets/images/loyalty/foto-beleza-completa.png",
+      title: "3.200 pontos",
+      description: "Cabeleireiro + Manicure + Spa dos Pés.",
+      missingText: "Faltam 2.500 pontos",
+      status: "Continue acumulando!"
     }
   ],
   earningExamples: [
-    { label: "Contratação de serviço", points: "+ pontos" },
-    { label: "Frequência de atendimento", points: "+ pontos" },
-    { label: "Campanhas especiais", points: "+ pontos" }
+    { label: "Cada diária realizada", points: "+100 pontos" },
+    { label: "Indique amigos e ganhe pontos", points: "+ pontos" },
+    { label: "Avalie nossos serviços e ganhe pontos", points: "+ pontos" },
+    { label: "Contrate planos recorrentes e ganhe pontos", points: "+ pontos" }
   ]
 };
 
@@ -1865,6 +1892,17 @@ function calculateLoyaltyProgress() {
   return Math.min(Math.max(progress, 0), 100);
 }
 
+function getLoyaltyRewardProgress(title) {
+  const rewardPoints = Number(String(title).replace(/\D/g, ""));
+  const { examplePoints } = TUDOLIMPO_LOYALTY_CONFIG;
+
+  if (!rewardPoints) {
+    return 0;
+  }
+
+  return Math.min(Math.max((examplePoints / rewardPoints) * 100, 0), 100);
+}
+
 function renderLoyaltySection() {
   if (!loyaltyElements.title) {
     return;
@@ -1875,30 +1913,57 @@ function renderLoyaltySection() {
   loyaltyElements.description.textContent = TUDOLIMPO_LOYALTY_CONFIG.description;
   loyaltyElements.support.textContent = TUDOLIMPO_LOYALTY_CONFIG.supportText;
   loyaltyElements.benefits.innerHTML = TUDOLIMPO_LOYALTY_CONFIG.benefits.map((benefit) => `
-    <article class="loyalty__benefit">
-      <span class="loyalty__icon" aria-hidden="true">${getSharedIcon(benefit.icon)}</span>
-      <div>
-        <h3>${benefit.title}</h3>
-        <p>${benefit.description}</p>
+    <article class="loyalty__benefit" style="--reward-progress: ${getLoyaltyRewardProgress(benefit.title)}%">
+      <div class="loyalty__benefit-points"><span>★</span>${benefit.title}</div>
+      <div class="loyalty__benefit-body">
+        <img class="loyalty__benefit-image" src="${resolveAssetPath(benefit.image)}" alt="${benefit.description}" loading="lazy">
+        <div>
+          <h3>${benefit.description}</h3>
+          <p>${benefit.missingText}</p>
+        </div>
       </div>
+      <div class="loyalty__reward-progress" aria-hidden="true"><span></span></div>
+      <strong class="loyalty__reward-status">${benefit.status}</strong>
     </article>
   `).join("");
   loyaltyElements.visual.innerHTML = `
     <div class="loyalty__card">
-      <div class="loyalty__card-brand">
-        <strong>TudoLimpo</strong>
-        <span>Programa de pontos</span>
+      <div class="loyalty__card-panel loyalty__card-panel--brand">
+        <div class="loyalty__brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <strong>TUDOLIMPO<br><span>PONTOS</span></strong>
+        <p>${TUDOLIMPO_LOYALTY_CONFIG.description}</p>
+        <em>${TUDOLIMPO_LOYALTY_CONFIG.supportText}</em>
       </div>
-      <span class="loyalty__card-label">Exemplo de pontuação</span>
-      <strong class="loyalty__points">${TUDOLIMPO_LOYALTY_CONFIG.examplePoints} pontos</strong>
-      <p class="loyalty__goal">Próximo objetivo: ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal} pontos</p>
-      <div class="loyalty__progress" aria-hidden="true">
-        <span style="width: ${calculateLoyaltyProgress()}%"></span>
+      <div class="loyalty__card-panel loyalty__card-panel--balance">
+        <span class="loyalty__card-label">Seu saldo</span>
+        <strong class="loyalty__points"><span>★</span>${TUDOLIMPO_LOYALTY_CONFIG.examplePoints.toLocaleString("pt-BR")}</strong>
+        <p class="loyalty__points-label">pontos</p>
+        <div class="loyalty__progress" aria-label="${TUDOLIMPO_LOYALTY_CONFIG.examplePoints} de ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal} pontos">
+          ${Array.from({ length: 10 }, (_, index) => `<span class="${index < Math.round(calculateLoyaltyProgress() / 10) ? "is-filled" : ""}"></span>`).join("")}
+        </div>
+        <p class="loyalty__goal">${TUDOLIMPO_LOYALTY_CONFIG.examplePoints.toLocaleString("pt-BR")} / ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal.toLocaleString("pt-BR")} pontos</p>
       </div>
-      <p class="loyalty__message">Continue utilizando os serviços TudoLimpo para conquistar novos benefícios.</p>
-      <ul class="loyalty__earning-list">
-        ${TUDOLIMPO_LOYALTY_CONFIG.earningExamples.map((item) => `<li><span>${item.label}</span><strong>${item.points}</strong></li>`).join("")}
-      </ul>
+      <div class="loyalty__card-panel loyalty__card-panel--daily">
+        <span class="loyalty__daily-icon" aria-hidden="true">✓</span>
+        <strong>${TUDOLIMPO_LOYALTY_CONFIG.featuredReward.label} =</strong>
+        <p>${TUDOLIMPO_LOYALTY_CONFIG.featuredReward.title}</p>
+      </div>
+      <div class="loyalty__card-rewards">
+        <span>Troque seus pontos por benefícios</span>
+        ${TUDOLIMPO_LOYALTY_CONFIG.benefits.map((benefit) => `
+          <article>
+            <img src="${resolveAssetPath(benefit.image)}" alt="" loading="lazy">
+            <strong>${benefit.title}</strong>
+            <p>${benefit.description}</p>
+          </article>
+        `).join("")}
+      </div>
+    </div>
+    <div class="loyalty__earning-bar">
+      <strong>Como eu acumulo?</strong>
+      ${TUDOLIMPO_LOYALTY_CONFIG.earningExamples.map((item) => `<span>${item.label} <b>${item.points}</b></span>`).join("")}
     </div>
   `;
   bindLoyaltyEvents();

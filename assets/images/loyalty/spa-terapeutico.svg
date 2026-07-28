@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Spa terapeutico</title>
+  <desc id="desc">Ilustracao de massagem relaxante.</desc>
+  <rect width="240" height="180" rx="34" fill="#edf4ff"/>
+  <circle cx="88" cy="82" r="28" fill="#efbd8f"/>
+  <path d="M54 124c14-25 42-39 76-38 28 1 49 12 62 32 5 8-1 18-11 18H66c-11 0-17-4-12-12Z" fill="#3167b1"/>
+  <path d="M69 71c10-27 52-28 67-3-22-4-44-2-67 3Z" fill="#213653"/>
+  <path d="M141 77c18-11 38-12 58-4" fill="none" stroke="#f0bd8d" stroke-width="15" stroke-linecap="round"/>
+  <path d="M136 102c21-12 43-13 66-3" fill="none" stroke="#f0bd8d" stroke-width="15" stroke-linecap="round"/>
+  <path d="M82 100c16 8 34 8 50 0" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="174" cy="48" r="10" fill="#f6c451"/>
+</svg>

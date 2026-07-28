@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Beleza completa</title>
+  <desc id="desc">Ilustracao de cabelo, manicure e spa dos pes.</desc>
+  <rect width="240" height="180" rx="34" fill="#fff8e6"/>
+  <circle cx="86" cy="76" r="31" fill="#efbd8f"/>
+  <path d="M49 95c-8-40 14-69 47-64 31 5 44 34 30 68-11-19-36-28-77-4Z" fill="#8b5a25"/>
+  <path d="M57 106c17 12 38 12 58 0" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M146 56h45" stroke="#b38408" stroke-width="12" stroke-linecap="round"/>
+  <path d="M151 56l-17-18M151 56l-17 18" stroke="#b38408" stroke-width="8" stroke-linecap="round"/>
+  <rect x="142" y="94" width="52" height="46" rx="14" fill="#13989a"/>
+  <path d="M157 94V82h22v12" fill="none" stroke="#082f51" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="179" cy="116" r="11" fill="#f6c451"/>
+  <path d="M59 135c27 13 60 13 88 0" fill="none" stroke="#f6c451" stroke-width="9" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Limpeza de pele</title>
+  <desc id="desc">Ilustracao de rosto em procedimento estetico.</desc>
+  <rect width="240" height="180" rx="34" fill="#f4efff"/>
+  <circle cx="116" cy="88" r="46" fill="#efbd8f"/>
+  <path d="M70 84c4-36 30-55 63-48 27 6 42 25 39 57-30-14-64-16-102-9Z" fill="#463069"/>
+  <path d="M83 110c21 19 47 20 71 0" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+  <path d="M70 130c20-12 68-14 96 0" fill="none" stroke="#6d3fc1" stroke-width="12" stroke-linecap="round"/>
+  <path d="M177 68l30-17" stroke="#13989a" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="204" cy="48" r="11" fill="#13989a"/>
+  <circle cx="96" cy="87" r="4" fill="#213653"/>
+  <circle cx="135" cy="87" r="4" fill="#213653"/>
+</svg>
