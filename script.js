@@ -3,6 +3,7 @@ const nav = document.querySelector(".primary-nav");
 const navLinks = document.querySelectorAll(".primary-nav a");
 const serviceCards = document.querySelectorAll(".service-card");
 const serviceButtons = document.querySelectorAll(".service-card__button");
+const heroWhatsAppButton = document.querySelector("#hero-whatsapp");
 
 // ==================================================
 // CENTRAL DE IMAGENS DA LANDING PAGE
@@ -149,7 +150,7 @@ const TUDOLIMPO_IMAGE_CONFIG = {
 
 // NO WORDPRESS, DEFINA TUDOLIMPO_ASSET_BASE_PATH
 // COM O CAMINHO DO TEMA OU PLUGIN.
-const TUDOLIMPO_CACHE_VERSION = "20260727225910";
+const TUDOLIMPO_CACHE_VERSION = "20260729201322";
 
 function resolveAssetPath(relativePath) {
   const basePath = window.TUDOLIMPO_ASSET_BASE_PATH || "";
@@ -414,11 +415,11 @@ const TUDOLIMPO_LOYALTY_CONFIG = {
   badge: "Programa TudoLimpo Pontos",
   title: "TudoLimpo Pontos",
   description:
-    "Quanto mais você cuida, mais benefícios acumula.",
+    "Sua limpeza vale pontos. Seus pontos viram experiências.",
   supportText:
-    "Seu cuidado gera bem-estar.",
-  examplePoints: 700,
-  exampleGoal: 1000,
+    "A cada diária realizada com a TudoLimpo, você ganha +100 pontos para trocar por benefícios exclusivos.",
+  examplePoints: 100,
+  exampleGoal: 800,
   pointsPerService: 100,
   featuredReward: {
     label: "Cada diária realizada",
@@ -427,43 +428,42 @@ const TUDOLIMPO_LOYALTY_CONFIG = {
   },
   benefits: [
     {
-      icon: "sparkles",
-      image: "assets/images/loyalty/foto-spa-dos-pes.png",
+      icon: "feet",
+      image: "assets/images/loyalty/print-spa-dos-pes.png",
       title: "800 pontos",
-      description: "Spa dos Pés.",
-      missingText: "Faltam 100 pontos",
+      description: "Spa dos Pés",
+      missingText: "Faltam 700 pontos",
       status: "Quase lá!"
     },
     {
-      icon: "history",
-      image: "assets/images/loyalty/foto-spa-terapeutico.png",
+      icon: "therapy",
+      image: "assets/images/loyalty/print-spa-terapeutico.png",
       title: "1.200 pontos",
-      description: "Spa Terapêutico.",
-      missingText: "Faltam 500 pontos",
-      status: "Continue acumulando!"
+      description: "Spa Terapêutico",
+      missingText: "Faltam 1.100 pontos",
+      status: "Chegando perto!"
     },
     {
-      icon: "sparkles",
-      image: "assets/images/loyalty/foto-limpeza-de-pele.png",
+      icon: "skin",
+      image: "assets/images/loyalty/print-spa-limpeza-pele.png",
       title: "1.600 pontos",
-      description: "Spa Terapêutico + Limpeza de Pele.",
-      missingText: "Faltam 900 pontos",
-      status: "Continue acumulando!"
+      description: "Spa Terapêutico + Limpeza de Pele",
+      missingText: "Faltam 1.500 pontos",
+      status: "Ative agora o seu benefício!"
     },
     {
-      icon: "gift",
-      image: "assets/images/loyalty/foto-beleza-completa.png",
+      icon: "beauty",
+      image: "assets/images/loyalty/print-cabeleireiro.png",
       title: "3.200 pontos",
-      description: "Cabeleireiro + Manicure + Spa dos Pés.",
-      missingText: "Faltam 2.500 pontos",
-      status: "Continue acumulando!"
+      description: "Cabeleireiro + Manicure + Spa dos Pés",
+      missingText: "Faltam 3.100 pontos",
+      status: "Pontuação máxima!"
     }
   ],
   earningExamples: [
-    { label: "Cada diária realizada", points: "+100 pontos" },
-    { label: "Indique amigos e ganhe pontos", points: "+ pontos" },
-    { label: "Avalie nossos serviços e ganhe pontos", points: "+ pontos" },
-    { label: "Contrate planos recorrentes e ganhe pontos", points: "+ pontos" }
+    { icon: "friends", label: "Ganhe pontos", points: "indicando amigos" },
+    { icon: "review", label: "Ganhe pontos", points: "avaliando serviços" },
+    { icon: "plan", label: "Ganhe pontos", points: "contratando planos" }
   ]
 };
 
@@ -1064,6 +1064,11 @@ function createMultiSelect(group, options) {
 
   const summary = document.createElement("summary");
   summary.innerHTML = '<span class="builder-multiselect__label">Selecione uma ou mais opções</span>';
+  summary.addEventListener("click", () => {
+    if (!wrapper.open) {
+      closeOpenMultiSelects(wrapper);
+    }
+  });
   wrapper.appendChild(summary);
 
   const list = document.createElement("div");
@@ -1098,6 +1103,7 @@ function createMultiSelect(group, options) {
       syncMultiSelect(wrapper);
       updateProgress();
       updateSummary();
+      closeMultiSelect(wrapper);
     });
 
     list.appendChild(item);
@@ -1107,6 +1113,46 @@ function createMultiSelect(group, options) {
 
   wrapper.appendChild(list);
   return wrapper;
+}
+
+function closeMultiSelect(wrapper) {
+  if (!wrapper) {
+    return;
+  }
+
+  wrapper.open = false;
+
+  const search = wrapper.querySelector(".builder-multiselect__search");
+  if (search?.value) {
+    search.value = "";
+    filterMultiSelect(wrapper, "");
+  }
+}
+
+function closeOpenMultiSelects(exception = null) {
+  document.querySelectorAll(".builder-multiselect[open]").forEach((wrapper) => {
+    if (wrapper !== exception) {
+      closeMultiSelect(wrapper);
+    }
+  });
+}
+
+function bindMultiSelectCloseEvents() {
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    if (!event.target.closest(".builder-multiselect")) {
+      closeOpenMultiSelects();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeOpenMultiSelects();
+    }
+  });
 }
 
 function createStep(number, title, content, group) {
@@ -1355,6 +1401,7 @@ function formatDate(value) {
 }
 
 renderOptions();
+bindMultiSelectCloseEvents();
 
 if (builderElements.whatsapp) {
   builderElements.whatsapp.addEventListener("click", openWhatsApp);
@@ -1881,8 +1928,39 @@ function getSharedIcon(icon) {
   return icons[icon] || icons.sparkles;
 }
 
+function getLoyaltyCardIcon(icon) {
+  const icons = {
+    calendar: '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="14" width="40" height="38" rx="7" /><path d="M22 9v11M42 9v11M12 25h40M24 38l6 6 12-14" /></svg>',
+    gift: '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="15" y="29" width="34" height="25" rx="4" /><path d="M12 21h40v10H12zM32 21v33M32 21h-9a6 6 0 1 1 6-6c0 6-8 6-8 6M32 21h9a6 6 0 1 0-6-6c0 6 8 6 8 6" /></svg>',
+    lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="10" width="12" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" /></svg>',
+    feet: '<svg viewBox="0 0 80 80" aria-hidden="true"><path d="M27 58c-9-12-10-28-2-36 5-5 14-3 17 4 4 9-2 17-7 25-2 4-4 7-8 7Z" /><path d="M50 62c-8-11-8-29 0-37 5-6 15-4 18 4 4 10-3 19-8 27-2 4-5 7-10 6Z" /><path d="M17 27h.1M23 19h.1M31 16h.1M55 18h.1M64 21h.1M70 29h.1" /></svg>',
+    therapy: '<svg viewBox="0 0 80 80" aria-hidden="true"><path d="M23 35c0-15 10-25 25-25 9 0 16 5 17 14-11-4-25-2-39 6" /><path d="M22 34c-3 5-4 18 2 26 5 7 19 11 29 4 5-4 8-10 8-18" /><path d="M31 47h.1M50 47h.1M34 57c5 4 11 4 16 0M29 25c6-6 20-9 29-3M58 38l8-8M61 47l10-4" /></svg>',
+    skin: '<svg viewBox="0 0 80 80" aria-hidden="true"><path d="M23 35c0-15 10-25 25-25 9 0 16 5 17 14-11-4-25-2-39 6" /><path d="M22 34c-3 5-4 18 2 26 5 7 19 11 29 4 5-4 8-10 8-18" /><path d="M31 47h.1M50 47h.1M34 57c5 4 11 4 16 0M57 56l13-22M66 31l7 4M54 61l7 4" /></svg>',
+    beauty: '<svg viewBox="0 0 112 80" aria-hidden="true"><path d="M18 54c-3-16 2-33 17-39 12-5 26 2 27 15-10-4-23 0-31 9" /><path d="M28 37c-3 11 3 25 15 27M39 45h.1M34 55c5 4 10 4 15 0" /><rect x="67" y="24" width="10" height="28" rx="2" /><path d="M67 58h18M80 40l4 4 8-10M94 58c-6-8-6-18 0-24 4-4 11-2 13 4" /><path d="M97 38h.1M102 41h.1M107 47h.1" /></svg>',
+    friends: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M24 31a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM9 52c2-10 9-16 18-16s16 6 18 16M43 23a7 7 0 1 0 0-14M43 38c6 1 10 5 12 12M51 39v14M44 46h14" /></svg>',
+    review: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 14h40v29H31L20 53V43h-8z" /><path d="m32 21 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z" /></svg>',
+    plan: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 12h24l6 6v34H14V12h6ZM22 24h20M22 34h20M22 44h12M42 45l4 4 8-10" /><path d="M44 12v8h8" /></svg>'
+  };
+
+  return icons[icon] || icons.gift;
+}
+
 function getWhatsAppUrl(message) {
   return `https://wa.me/${TUDOLIMPO_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+}
+
+function bindHeroWhatsApp() {
+  if (!heroWhatsAppButton) {
+    return;
+  }
+
+  heroWhatsAppButton.href = getWhatsAppUrl("Olá! Gostaria de solicitar um orçamento na TudoLimpo.");
+  heroWhatsAppButton.target = "_blank";
+  heroWhatsAppButton.rel = "noopener noreferrer";
+}
+
+function getLoyaltyRewardPoints(title) {
+  return Number(String(title).replace(/\D/g, ""));
 }
 
 function calculateLoyaltyProgress() {
@@ -1892,15 +1970,34 @@ function calculateLoyaltyProgress() {
   return Math.min(Math.max(progress, 0), 100);
 }
 
-function getLoyaltyRewardProgress(title) {
-  const rewardPoints = Number(String(title).replace(/\D/g, ""));
-  const { examplePoints } = TUDOLIMPO_LOYALTY_CONFIG;
+function isLoyaltyRewardAvailable(title) {
+  const rewardPoints = getLoyaltyRewardPoints(title);
 
-  if (!rewardPoints) {
-    return 0;
+  return rewardPoints > 0 && TUDOLIMPO_LOYALTY_CONFIG.examplePoints >= rewardPoints;
+}
+
+function getLoyaltyGoalMessage() {
+  const missingPoints = Math.max(
+    TUDOLIMPO_LOYALTY_CONFIG.exampleGoal - TUDOLIMPO_LOYALTY_CONFIG.examplePoints,
+    0
+  );
+
+  if (!missingPoints) {
+    return "Benefício disponível para resgate";
   }
 
-  return Math.min(Math.max((examplePoints / rewardPoints) * 100, 0), 100);
+  return `Faltam ${missingPoints.toLocaleString("pt-BR")} pontos para o próximo benefício`;
+}
+
+function getLoyaltyBenefitStatus(benefit) {
+  const rewardPoints = getLoyaltyRewardPoints(benefit.title);
+  const missingPoints = Math.max(rewardPoints - TUDOLIMPO_LOYALTY_CONFIG.examplePoints, 0);
+
+  if (!missingPoints) {
+    return benefit.status;
+  }
+
+  return `Faltam ${missingPoints.toLocaleString("pt-BR")} pontos`;
 }
 
 function renderLoyaltySection() {
@@ -1912,58 +2009,66 @@ function renderLoyaltySection() {
   loyaltyElements.title.textContent = TUDOLIMPO_LOYALTY_CONFIG.title;
   loyaltyElements.description.textContent = TUDOLIMPO_LOYALTY_CONFIG.description;
   loyaltyElements.support.textContent = TUDOLIMPO_LOYALTY_CONFIG.supportText;
-  loyaltyElements.benefits.innerHTML = TUDOLIMPO_LOYALTY_CONFIG.benefits.map((benefit) => `
-    <article class="loyalty__benefit" style="--reward-progress: ${getLoyaltyRewardProgress(benefit.title)}%">
-      <div class="loyalty__benefit-points"><span>★</span>${benefit.title}</div>
-      <div class="loyalty__benefit-body">
-        <img class="loyalty__benefit-image" src="${resolveAssetPath(benefit.image)}" alt="${benefit.description}" loading="lazy">
-        <div>
-          <h3>${benefit.description}</h3>
-          <p>${benefit.missingText}</p>
-        </div>
-      </div>
-      <div class="loyalty__reward-progress" aria-hidden="true"><span></span></div>
-      <strong class="loyalty__reward-status">${benefit.status}</strong>
-    </article>
-  `).join("");
+  loyaltyElements.benefits.hidden = true;
+  loyaltyElements.benefits.innerHTML = "";
   loyaltyElements.visual.innerHTML = `
-    <div class="loyalty__card">
-      <div class="loyalty__card-panel loyalty__card-panel--brand">
-        <div class="loyalty__brand-mark" aria-hidden="true">
-          <span></span><span></span><span></span>
+    <div class="loyalty__card" style="--loyalty-progress: ${calculateLoyaltyProgress()}%">
+      <div class="loyalty__card-top">
+        <div class="loyalty__card-panel loyalty__card-panel--brand">
+          <div class="loyalty__brand-lockup">
+            <div class="loyalty__brand-mark" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div>
+              <strong>TudoLimpo</strong>
+              <small>Serviços de limpeza</small>
+            </div>
+          </div>
+          <h3 class="loyalty__card-title">TudoLimpo <span>Pontos</span></h3>
+          <p class="loyalty__card-copy">Sua limpeza vale pontos.<br>Seus pontos viram <span>experiências.</span></p>
+          <p class="loyalty__card-note">${TUDOLIMPO_LOYALTY_CONFIG.supportText}</p>
         </div>
-        <strong>TUDOLIMPO<br><span>PONTOS</span></strong>
-        <p>${TUDOLIMPO_LOYALTY_CONFIG.description}</p>
-        <em>${TUDOLIMPO_LOYALTY_CONFIG.supportText}</em>
-      </div>
-      <div class="loyalty__card-panel loyalty__card-panel--balance">
-        <span class="loyalty__card-label">Seu saldo</span>
-        <strong class="loyalty__points"><span>★</span>${TUDOLIMPO_LOYALTY_CONFIG.examplePoints.toLocaleString("pt-BR")}</strong>
-        <p class="loyalty__points-label">pontos</p>
-        <div class="loyalty__progress" aria-label="${TUDOLIMPO_LOYALTY_CONFIG.examplePoints} de ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal} pontos">
-          ${Array.from({ length: 10 }, (_, index) => `<span class="${index < Math.round(calculateLoyaltyProgress() / 10) ? "is-filled" : ""}"></span>`).join("")}
+        <div class="loyalty__card-panel loyalty__card-panel--balance">
+          <span class="loyalty__card-label">Seu saldo atual</span>
+          <strong class="loyalty__points"><span>★</span><b>${TUDOLIMPO_LOYALTY_CONFIG.examplePoints.toLocaleString("pt-BR")}</b></strong>
+          <p class="loyalty__points-label">pontos</p>
+          <p class="loyalty__next">${getLoyaltyGoalMessage()}</p>
+          <div class="loyalty__progress" aria-label="${TUDOLIMPO_LOYALTY_CONFIG.examplePoints} de ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal} pontos">
+            <span class="loyalty__progress-track"><span class="loyalty__progress-fill"></span></span>
+          </div>
+          <p class="loyalty__goal"><strong>${TUDOLIMPO_LOYALTY_CONFIG.examplePoints.toLocaleString("pt-BR")}</strong> / ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal.toLocaleString("pt-BR")} pontos</p>
         </div>
-        <p class="loyalty__goal">${TUDOLIMPO_LOYALTY_CONFIG.examplePoints.toLocaleString("pt-BR")} / ${TUDOLIMPO_LOYALTY_CONFIG.exampleGoal.toLocaleString("pt-BR")} pontos</p>
+        <div class="loyalty__card-panel loyalty__card-panel--daily">
+          <span class="loyalty__daily-icon">${getLoyaltyCardIcon("calendar")}</span>
+          <strong>${TUDOLIMPO_LOYALTY_CONFIG.featuredReward.label}</strong>
+          <span class="loyalty__daily-equals">=</span>
+          <p>${TUDOLIMPO_LOYALTY_CONFIG.featuredReward.title}</p>
+        </div>
       </div>
-      <div class="loyalty__card-panel loyalty__card-panel--daily">
-        <span class="loyalty__daily-icon" aria-hidden="true">✓</span>
-        <strong>${TUDOLIMPO_LOYALTY_CONFIG.featuredReward.label} =</strong>
-        <p>${TUDOLIMPO_LOYALTY_CONFIG.featuredReward.title}</p>
+      <div class="loyalty__reward-heading">
+        <span>${getLoyaltyCardIcon("gift")}</span>
+        <strong>Troque seus pontos por benefícios</strong>
       </div>
       <div class="loyalty__card-rewards">
-        <span>Troque seus pontos por benefícios</span>
         ${TUDOLIMPO_LOYALTY_CONFIG.benefits.map((benefit) => `
-          <article>
-            <img src="${resolveAssetPath(benefit.image)}" alt="" loading="lazy">
-            <strong>${benefit.title}</strong>
-            <p>${benefit.description}</p>
+          <article class="${isLoyaltyRewardAvailable(benefit.title) ? "is-available" : ""}">
+            <strong class="loyalty__reward-points"><span>★</span>${benefit.title}</strong>
+            <figure class="loyalty__benefit-photo">
+              <img src="${resolveAssetPath(benefit.image)}" alt="${benefit.description}" loading="lazy">
+            </figure>
+            <h4>${benefit.description}</h4>
+            <small><span>${getLoyaltyCardIcon("lock")}</span>${getLoyaltyBenefitStatus(benefit)}</small>
           </article>
         `).join("")}
       </div>
-    </div>
-    <div class="loyalty__earning-bar">
-      <strong>Como eu acumulo?</strong>
-      ${TUDOLIMPO_LOYALTY_CONFIG.earningExamples.map((item) => `<span>${item.label} <b>${item.points}</b></span>`).join("")}
+      <div class="loyalty__earning-bar">
+        ${TUDOLIMPO_LOYALTY_CONFIG.earningExamples.map((item) => `
+          <span>
+            <i>${getLoyaltyCardIcon(item.icon)}</i>
+            <span>${item.label}<b>${item.points}</b></span>
+          </span>
+        `).join("")}
+      </div>
     </div>
   `;
   bindLoyaltyEvents();
@@ -2373,6 +2478,7 @@ function updateFooterYear() {
 
 initializeConfiguredContentImages();
 validateConfiguredImages();
+bindHeroWhatsApp();
 renderLoyaltySection();
 renderTestimonials();
 bindFinalCtaEvents();

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-labelledby="title desc">
+  <title id="title">Kit de produtos TudoLimpo</title>
+  <desc id="desc">Ilustracao de uma caixa de produtos de limpeza com brilhos.</desc>
+  <rect width="240" height="180" rx="34" fill="#eef7ff"/>
+  <path d="M63 74h114v76H63z" fill="#ffffff" stroke="#183b6b" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M55 54h130v34H55z" fill="#dcecff" stroke="#183b6b" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M120 54v96" stroke="#183b6b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M120 54H96c-14 0-22-9-18-20 4-10 18-11 27-2 8 8 15 22 15 22Z" fill="#ffffff" stroke="#183b6b" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M120 54h24c14 0 22-9 18-20-4-10-18-11-27-2-8 8-15 22-15 22Z" fill="#ffffff" stroke="#183b6b" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M85 104h22v28H85z" fill="#d8ffe6" stroke="#20c7cf" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M91 104V92h10v12" fill="none" stroke="#183b6b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M137 103h20v30h-20z" fill="#d8ffe6" stroke="#20c7cf" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M147 103V89" stroke="#183b6b" stroke-width="5" stroke-linecap="round"/>
+  <path d="m39 111 5 11 11 5-11 5-5 11-5-11-11-5 11-5 5-11Z" fill="#20c7cf"/>
+  <path d="m198 76 4 9 9 4-9 4-4 9-4-9-9-4 9-4 4-9Z" fill="#20c7cf"/>
+  <circle cx="189" cy="128" r="6" fill="#6ed7ff"/>
+</svg>
