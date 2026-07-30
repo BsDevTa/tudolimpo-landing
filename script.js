@@ -150,7 +150,7 @@ const TUDOLIMPO_IMAGE_CONFIG = {
 
 // NO WORDPRESS, DEFINA TUDOLIMPO_ASSET_BASE_PATH
 // COM O CAMINHO DO TEMA OU PLUGIN.
-const TUDOLIMPO_CACHE_VERSION = "20260729201322";
+const TUDOLIMPO_CACHE_VERSION = "20260730024856";
 
 function resolveAssetPath(relativePath) {
   const basePath = window.TUDOLIMPO_ASSET_BASE_PATH || "";
@@ -174,6 +174,7 @@ function resolveAssetPath(relativePath) {
 const TUDOLIMPO_CONFIG = {
   // ALTERE AQUI O NÚMERO DO WHATSAPP
   whatsappNumber: "5571988221221",
+  dailyPoints: 100,
   // ALTERE AQUI OS TEXTOS DA SEÇÃO
   texts: {
     title: "Monte sua limpeza",
@@ -187,7 +188,8 @@ const TUDOLIMPO_CONFIG = {
     comodos: "Quantidade de cômodos",
     adicionais: "Serviços adicionais",
     periodicidade: "Periodicidade",
-    data: "Data"
+    data: "Data",
+    horas: "Horas contratadas"
   },
   // ALTERE AQUI OS PONTOS
   pointsPerSelection: {
@@ -272,6 +274,11 @@ const TUDOLIMPO_CONFIG = {
     { label: "2x na semana", icon: "2X" },
     { label: "3x na semana", icon: "3X" },
     { label: "Avulso", icon: "AV" }
+  ],
+  horasContratadas: [
+    { label: "4 horas", icon: "4h" },
+    { label: "6 horas", icon: "6h" },
+    { label: "8 horas", icon: "8h" }
   ]
 };
 
@@ -597,7 +604,8 @@ const state = {
   comodos: "",
   adicionais: [],
   periodicidade: "",
-  data: ""
+  data: "",
+  horas: ""
 };
 
 const builderElements = {
@@ -614,6 +622,7 @@ const builderElements = {
     adicionais: document.querySelector("#summary-adicionais"),
     periodicidade: document.querySelector("#summary-periodicidade"),
     data: document.querySelector("#summary-data"),
+    horas: document.querySelector("#summary-horas"),
     points: document.querySelector("#summary-points")
   },
   score: document.querySelector(".builder-score"),
@@ -1103,7 +1112,7 @@ function createMultiSelect(group, options) {
       syncMultiSelect(wrapper);
       updateProgress();
       updateSummary();
-      closeMultiSelect(wrapper);
+      window.requestAnimationFrame(() => closeMultiSelect(wrapper));
     });
 
     list.appendChild(item);
@@ -1208,6 +1217,7 @@ function renderOptions() {
   builderElements.steps.appendChild(createStep(3, TUDOLIMPO_CONFIG.stepTitles.adicionais, createOptions("adicionais", TUDOLIMPO_CONFIG.adicionais, true), "adicionais"));
   builderElements.steps.appendChild(createStep(4, TUDOLIMPO_CONFIG.stepTitles.periodicidade, createOptions("periodicidade", TUDOLIMPO_CONFIG.periodicidades, false, true), "periodicidade"));
   builderElements.steps.appendChild(createStep(5, TUDOLIMPO_CONFIG.stepTitles.data, createDateStep(), "data"));
+  builderElements.steps.appendChild(createStep(6, TUDOLIMPO_CONFIG.stepTitles.horas, createOptions("horas", TUDOLIMPO_CONFIG.horasContratadas, false, true), "horas"));
 
   updateProgress();
   updateSummary();
@@ -1295,19 +1305,23 @@ function calculatePoints() {
   const completedSteps = [
     state.ambiente,
     state.comodos,
-    state.periodicidade
+    state.periodicidade,
+    state.data,
+    state.horas
   ].filter(Boolean).length;
 
-  return Math.min(Math.round((completedSteps / 3) * 100), 100);
+  return Math.min(Math.round((completedSteps / 5) * TUDOLIMPO_CONFIG.dailyPoints), TUDOLIMPO_CONFIG.dailyPoints);
 }
 
 function updateProgress() {
   const completedSteps = [
     state.ambiente,
     state.comodos,
-    state.periodicidade
+    state.periodicidade,
+    state.data,
+    state.horas
   ].filter(Boolean).length;
-  const progress = Math.min(Math.round((completedSteps / 3) * 100), 100);
+  const progress = Math.min(Math.round((completedSteps / 5) * 100), 100);
 
   builderElements.progressBar.style.width = `${progress}%`;
   builderElements.progressText.textContent = `${progress}%`;
@@ -1321,6 +1335,7 @@ function updateSummary() {
   builderElements.summary.adicionais.textContent = state.adicionais.length ? state.adicionais.join(", ") : "Não selecionado";
   builderElements.summary.periodicidade.textContent = state.periodicidade || "Não selecionado";
   builderElements.summary.data.textContent = state.data ? formatDate(state.data) : "Não selecionado";
+  builderElements.summary.horas.textContent = state.horas || "Não selecionado";
   builderElements.summary.points.textContent = `${points} pontos!`;
 
   animateScore();
@@ -1343,6 +1358,7 @@ function validateForm() {
   if (!state.comodos) missing.push({ field: "comodos", label: "Quantidade de cômodos" });
   if (!state.periodicidade) missing.push({ field: "periodicidade", label: "Periodicidade" });
   if (!state.data) missing.push({ field: "data", label: "Data" });
+  if (!state.horas) missing.push({ field: "horas", label: "Horas contratadas" });
 
   document.querySelectorAll(".builder-step").forEach((step) => {
     step.classList.toggle("is-invalid", missing.some((item) => item.field === step.dataset.step));
@@ -1367,17 +1383,20 @@ function clearValidation() {
 }
 
 function buildWhatsAppMessage() {
-  const adicionais = state.adicionais.length ? state.adicionais.join(", ") : "Não selecionado";
+  const adicionais = state.adicionais.length && !state.adicionais.includes("Não no momento") ? state.adicionais.join(", ") : "Nenhum";
 
   return [
-    "Olá! Gostaria de solicitar um orçamento na TudoLimpo.",
+    "Olá! Gostaria de solicitar um orçamento para limpeza.",
     "",
     `Ambiente: ${state.ambiente}`,
     `Quantidade de cômodos: ${state.comodos}`,
     `Serviços adicionais: ${adicionais}`,
     `Periodicidade: ${state.periodicidade}`,
     `Data desejada: ${state.data ? formatDate(state.data) : "Não selecionado"}`,
-    `Pontuação: ${calculatePoints()}`
+    `Horas contratadas: ${state.horas}`,
+    `Pontuação da diária: ${calculatePoints()} pontos`,
+    "",
+    "Aguardo o retorno. Obrigado!"
   ].join("\n");
 }
 

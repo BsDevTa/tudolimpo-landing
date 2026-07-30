@@ -971,7 +971,8 @@ button:focus-visible {
   border-bottom: 0;
 }
 
-.builder-step[data-step="data"] {
+.builder-step[data-step="data"],
+.builder-step[data-step="horas"] {
   grid-column: 1 / -1;
 }
 
